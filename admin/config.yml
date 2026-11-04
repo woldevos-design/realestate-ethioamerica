@@ -160,6 +160,29 @@ collections:
               - { label: "PDF", name: "pdf", widget: "file", required: false, choose_url: false }
 
   # ---------------------------------------------------------------
+  - name: "play"
+    label: "Play page"
+    description: "Trivia questions for the Play page. Refresh them each quarter. Keep facts accurate."
+    format: "json"
+    editor: { preview: false }
+    files:
+      - name: "play"
+        label: "Trivia game"
+        file: "content/play.json"
+        fields:
+          - { label: "Trivia title", name: "trivia_title", widget: "string" }
+          - { label: "Trivia intro", name: "trivia_intro", widget: "string" }
+          - label: "Questions"
+            name: "trivia"
+            widget: "list"
+            summary: "{{fields.question}}"
+            fields:
+              - { label: "Question", name: "question", widget: "string" }
+              - { label: "Answer choices", name: "options", widget: "list", min: 2, max: 5 }
+              - { label: "Correct choice number (1 = first choice)", name: "answer", widget: "number", value_type: "int", min: 1, max: 5 }
+              - { label: "Explanation shown after answering", name: "explanation", widget: "string" }
+
+  # ---------------------------------------------------------------
   - name: "settings"
     label: "Site settings"
     description: "Home page cover, disclaimers, contact channels, publishers and ad packages."

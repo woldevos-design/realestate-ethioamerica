@@ -1,0 +1,48 @@
+{
+  "trivia_title": "How well do you know Addis?",
+  "trivia_intro": "Seven quick questions about the city. Share your score with family back home.",
+  "trivia": [
+    {
+      "question": "What does \"Addis Ababa\" mean in Amharic?",
+      "options": ["New flower", "Old mountain", "Great river", "Golden gate"],
+      "answer": 1,
+      "explanation": "Addis means new and abeba means flower."
+    },
+    {
+      "question": "Who founded Addis Ababa in 1886?",
+      "options": ["Emperor Tewodros II", "Emperor Menelik II and Empress Taytu", "Emperor Haile Selassie", "Emperor Yohannes IV"],
+      "answer": 2,
+      "explanation": "Empress Taytu chose the site near the hot springs, and Menelik II made it the capital."
+    },
+    {
+      "question": "About how high above sea level is Addis Ababa?",
+      "options": ["About 1,200 m (3,900 ft)", "About 2,355 m (7,700 ft)", "About 3,600 m (11,800 ft)", "About 500 m (1,600 ft)"],
+      "answer": 2,
+      "explanation": "It is one of the highest capital cities in the world, which is why the weather stays mild all year."
+    },
+    {
+      "question": "How many months are in the Ethiopian calendar?",
+      "options": ["12", "13", "10", "14"],
+      "answer": 2,
+      "explanation": "Twelve months of 30 days, plus Pagume, a short 13th month of 5 or 6 days."
+    },
+    {
+      "question": "Which organization has its headquarters in Addis Ababa?",
+      "options": ["The African Union", "The World Bank", "The Arab League", "OPEC"],
+      "answer": 1,
+      "explanation": "That's one reason Addis is often called the diplomatic capital of Africa."
+    },
+    {
+      "question": "When is Enkutatash, the Ethiopian New Year?",
+      "options": ["January 1", "September 11 (September 12 in a leap year)", "January 7", "April 14"],
+      "answer": 2,
+      "explanation": "It falls at the end of the rainy season, when the yellow adey abeba flowers bloom."
+    },
+    {
+      "question": "In what year did the Addis Ababa light rail open?",
+      "options": ["2005", "2010", "2015", "2020"],
+      "answer": 3,
+      "explanation": "It opened in 2015, one of the first modern light rail systems in sub-Saharan Africa."
+    }
+  ]
+}
