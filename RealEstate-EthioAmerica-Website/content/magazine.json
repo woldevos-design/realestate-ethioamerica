@@ -1,0 +1,110 @@
+{
+  "current": {
+    "title": "Issue 01 · January 2027",
+    "intro": "Flip through the first issue. The full flipbook and PDF download go live with the launch.",
+    "flipbook_url": "",
+    "pdf": "",
+    "cover": "img/p-01.jpg",
+    "pages": [
+      {
+        "image": "img/p-01.jpg"
+      },
+      {
+        "image": "img/p-02.jpg"
+      },
+      {
+        "image": "img/p-03.jpg"
+      },
+      {
+        "image": "img/p-04.jpg"
+      },
+      {
+        "image": "img/p-05.jpg"
+      },
+      {
+        "image": "img/p-06.jpg"
+      },
+      {
+        "image": "img/p-07.jpg"
+      },
+      {
+        "image": "img/p-08.jpg"
+      },
+      {
+        "image": "img/p-09.jpg"
+      },
+      {
+        "image": "img/p-10.jpg"
+      },
+      {
+        "image": "img/p-11.jpg"
+      },
+      {
+        "image": "img/p-12.jpg"
+      },
+      {
+        "image": "img/p-13.jpg"
+      },
+      {
+        "image": "img/p-14.jpg"
+      },
+      {
+        "image": "img/p-15.jpg"
+      },
+      {
+        "image": "img/p-16.jpg"
+      }
+    ],
+    "toc": [
+      {
+        "text": "Welcome",
+        "is_heading": true
+      },
+      {
+        "text": "Publisher’s Note",
+        "is_heading": false
+      },
+      {
+        "text": "Inside This Issue",
+        "is_heading": false
+      },
+      {
+        "text": "Community & Connections",
+        "is_heading": true
+      },
+      {
+        "text": "Discover the DMV",
+        "is_heading": false
+      },
+      {
+        "text": "Community Spotlight",
+        "is_heading": false
+      },
+      {
+        "text": "Local Business",
+        "is_heading": false
+      },
+      {
+        "text": "Real Estate",
+        "is_heading": true
+      },
+      {
+        "text": "Find Your Place: Buying a Home in the DMV",
+        "is_heading": false
+      },
+      {
+        "text": "Ready to Sell",
+        "is_heading": false
+      },
+      {
+        "text": "Investing from Abroad",
+        "is_heading": false
+      },
+      {
+        "text": "Cash or Financing",
+        "is_heading": false
+      }
+    ]
+  },
+  "archive": []
+}

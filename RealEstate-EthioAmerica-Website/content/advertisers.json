@@ -1,0 +1,462 @@
+{
+  "advertisers": [
+    {
+      "id": "elilta",
+      "name": "Elilta",
+      "published": true,
+      "featured": true,
+      "type": "Developer",
+      "group": "developers",
+      "kicker": "Ethiopia Real Estate Catalog",
+      "country": "Ethiopia",
+      "tagline": "Luxury redefined. Move-in-ready homes in Addis Ababa, to buy or rent.",
+      "about": "Elilta presents move-in-ready residences in Addis Ababa, positioned as luxury homes, with new properties available to buy or to rent.",
+      "ad_images": [
+        "img/p-04.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Offer",
+          "value": "Buy or rent"
+        },
+        {
+          "label": "Stage",
+          "value": "Move-in ready (per ad)"
+        },
+        {
+          "label": "City",
+          "value": "Addis Ababa"
+        }
+      ],
+      "areas": [],
+      "contact": {
+        "phone": "+251 942 654 444",
+        "whatsapp": "251942654444",
+        "email": "Getas@getasrealestateplc.com",
+        "website": "getasrealestateplc.com",
+        "note": "Sales contact printed in the ad: Getas Real Estate"
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "getas",
+      "name": "Getas Real Estate",
+      "published": true,
+      "featured": true,
+      "type": "Sales agency",
+      "group": "developers",
+      "kicker": "Ethiopia Real Estate",
+      "country": "Ethiopia",
+      "tagline": "Comprehensive real estate services for buyers, sellers, landlords and investors in Addis Ababa.",
+      "about": "Getas describes itself as a full-service agency providing end-to-end services for buyers, sellers, landlords and investors in Addis Ababa, with diaspora services and properties to buy or rent in Kazanchis and at Summit 72.",
+      "ad_images": [
+        "img/p-05.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Services",
+          "value": "Sales, rentals, diaspora services"
+        },
+        {
+          "label": "Projects named",
+          "value": "Kazanchis · Summit 72"
+        },
+        {
+          "label": "Experience claimed",
+          "value": "21 years (per ad)"
+        }
+      ],
+      "areas": [
+        "Kazanchis",
+        "Summit"
+      ],
+      "contact": {
+        "phone": "+251 942 654 444",
+        "whatsapp": "251942654444",
+        "email": "Getas@getasrealestateplc.com",
+        "website": "getasrealestateplc.com",
+        "note": "Sales contact printed in the ad: Getas Real Estate"
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "dema-hope",
+      "name": "Dema Hope Real Estate",
+      "published": true,
+      "featured": true,
+      "type": "Developer",
+      "group": "developers",
+      "kicker": "Ethiopia Real Estate",
+      "country": "Ethiopia",
+      "tagline": "Elevate your lifestyle. Apartments across Bole and Mountain View.",
+      "about": "Dema Hope Real Estate presents itself as the sister company of Dema Hope Trading, building apartments in some of Addis Ababa's sought-after neighborhoods, with remote options for diaspora buyers such as virtual tours.",
+      "ad_images": [
+        "img/p-06.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Figures in ad",
+          "value": "4,000+ experts involved · 200K+ m² of construction · 100+ homes delivered"
+        },
+        {
+          "label": "Diaspora options (per ad)",
+          "value": "Power of attorney guidance, foreign-currency payment pathways, virtual tours"
+        },
+        {
+          "label": "Website",
+          "value": "demahoperealestate.com"
+        }
+      ],
+      "areas": [
+        "Dema Hope Prime",
+        "Bole Downtown",
+        "Bole Adey Abeba",
+        "Bole Central Shola",
+        "Mountain View"
+      ],
+      "contact": {
+        "phone": "",
+        "whatsapp": "",
+        "email": "",
+        "website": "demahoperealestate.com",
+        "note": "Also lists Getas Real Estate as a sales contact"
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "noah",
+      "name": "Noah Real Estate",
+      "published": true,
+      "featured": true,
+      "type": "Developer",
+      "group": "developers",
+      "kicker": "Ethiopia Real Estate",
+      "country": "Ethiopia",
+      "tagline": "Design. Build. Deliver. Residential and commercial projects across Addis Ababa.",
+      "about": "Noah Real Estate PLC says that since 2013 it has delivered landmark residential, commercial and mixed-use projects across Addis Ababa, with more under development.",
+      "ad_images": [
+        "img/p-07.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Founded",
+          "value": "2013 (per ad)"
+        },
+        {
+          "label": "Projects (per ad)",
+          "value": "32 delivered · 12 under development"
+        },
+        {
+          "label": "Headline figure",
+          "value": "11,000 homes (per ad)"
+        }
+      ],
+      "areas": [
+        "Bole Atlas",
+        "Enqulal Fabrica",
+        "Abinet",
+        "Ayat",
+        "22 / Lem Hotel",
+        "Summit",
+        "Bole Medhanealem",
+        "Megenagna",
+        "Ersha Mermer"
+      ],
+      "contact": {
+        "phone": "+251 942 654 444",
+        "whatsapp": "251942654444",
+        "email": "Getas@getasrealestateplc.com",
+        "website": "getasrealestateplc.com",
+        "note": "Sales contact printed in the ad: Getas Real Estate"
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "temer",
+      "name": "Temer Properties",
+      "published": true,
+      "featured": true,
+      "type": "Developer",
+      "group": "developers",
+      "kicker": "Ethiopia Real Estate",
+      "country": "Ethiopia",
+      "tagline": "Your Home. Your Business. Your Future.",
+      "about": "Temer Properties says it has delivered more than 350 apartments and homes in Addis Ababa since 2010 E.C., and is now offering new apartments and commercial spaces.",
+      "ad_images": [
+        "img/p-15.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Since",
+          "value": "2010 E.C. (per ad)"
+        },
+        {
+          "label": "Figures in ad",
+          "value": "18 projects · 350+ homes"
+        },
+        {
+          "label": "Offer",
+          "value": "Apartments and commercial spaces"
+        }
+      ],
+      "areas": [
+        "Sarbet",
+        "Ayat",
+        "Piyassa",
+        "Aware",
+        "Gelan",
+        "Garment"
+      ],
+      "contact": {
+        "phone": "+251 942 654 444",
+        "whatsapp": "251942654444",
+        "email": "Getas@getasrealestateplc.com",
+        "website": "getasrealestateplc.com",
+        "note": "Sales contact printed in the ad: Getas Real Estate"
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "dablo",
+      "name": "DABLO Law Firm",
+      "published": true,
+      "featured": false,
+      "type": "Attorneys",
+      "group": "law",
+      "kicker": "Real Estate Ethiopia & Law",
+      "country": "Ethiopia",
+      "tagline": "Legal counsel for Ethiopia's real estate market.",
+      "about": "DABLO advises developers, investors, buyers, landowners, contractors and financiers on property sale agreements, investment structuring, regulatory compliance, legal due diligence, dispute resolution, apartment pre-sale arrangements and homeowners' association agreements.",
+      "ad_images": [
+        "img/p-08.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Practice",
+          "value": "Real estate and property law"
+        },
+        {
+          "label": "Team named in ad",
+          "value": "Bruk (15+ years) · Associate Elilta Kefale"
+        }
+      ],
+      "areas": [],
+      "contact": {
+        "phone": "+251 942 654 444",
+        "whatsapp": "251942654444",
+        "email": "Getas@getasrealestateplc.com",
+        "website": "getasrealestateplc.com",
+        "note": "Sales contact printed in the ad: Getas Real Estate"
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "mehrteab-getu",
+      "name": "Mehrteab & Getu Advocates",
+      "published": true,
+      "featured": false,
+      "type": "Attorneys",
+      "group": "law",
+      "kicker": "Real Estate Ethiopia & Law",
+      "country": "Ethiopia",
+      "tagline": "Corporate, investment and property law, part of the LEX Africa alliance.",
+      "about": "Mehrteab & Getu Advocates advises domestic and international clients on structuring investments, foreign exchange regulations and significant business transactions, including real estate and property matters.",
+      "ad_images": [
+        "img/p-08.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Experience claimed",
+          "value": "25+ years"
+        },
+        {
+          "label": "Partners named",
+          "value": "Mehrteab Leul Kokeb · Getu Shiferaw"
+        },
+        {
+          "label": "Network",
+          "value": "Member of LEX Africa (per ad)"
+        }
+      ],
+      "areas": [],
+      "contact": {
+        "phone": "+251 942 654 444",
+        "whatsapp": "251942654444",
+        "email": "Getas@getasrealestateplc.com",
+        "website": "getasrealestateplc.com",
+        "note": "Sales contact printed in the ad: Getas Real Estate"
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "dashen",
+      "name": "Dashen Bank",
+      "published": true,
+      "featured": false,
+      "type": "Bank",
+      "group": "banking",
+      "kicker": "Real Estate Ethiopia & Banking",
+      "country": "Ethiopia",
+      "tagline": "Welcome Home: diaspora mortgage financing.",
+      "about": "Dashen Bank advertises mortgage financing to build or buy a home, designed for eligible Ethiopians abroad and foreign nationals of Ethiopian origin. Eligibility and terms are set by the bank.",
+      "ad_images": [
+        "img/p-12.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Product",
+          "value": "Diaspora mortgage financing"
+        },
+        {
+          "label": "Who it is for (per ad)",
+          "value": "Eligible Ethiopians abroad and foreign nationals of Ethiopian origin"
+        }
+      ],
+      "areas": [],
+      "contact": {
+        "phone": "",
+        "whatsapp": "",
+        "email": "",
+        "website": "",
+        "note": "Contact the bank directly for eligibility and terms"
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "zeleke-belay",
+      "name": "Zeleke Belay Architect",
+      "published": true,
+      "featured": false,
+      "type": "Architects",
+      "group": "architecture",
+      "kicker": "Real Estate Ethiopia & Architecture",
+      "country": "Ethiopia",
+      "tagline": "Thirty years of buildings, from banks to bridges.",
+      "about": "Zeleke Belay Architect presents work over the past 30 years ranging from universities and entertainment facilities to office buildings, hospitals, stadiums, shopping centers and residences.",
+      "ad_images": [
+        "img/p-12.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Projects shown",
+          "value": "Awash Bank · Renaissance · Nile Source · Oromia Insurance HQ · Cubocta Bridge"
+        }
+      ],
+      "areas": [],
+      "contact": {
+        "phone": "+251 973 345040",
+        "whatsapp": "251973345040",
+        "email": "zelekebelay@zeleke.org",
+        "website": "www.zeleke.org",
+        "note": ""
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "geretta",
+      "name": "Geretta Consult",
+      "published": true,
+      "featured": false,
+      "type": "Architects & engineers",
+      "group": "architecture",
+      "kicker": "Real Estate Ethiopia & Architecture",
+      "country": "Ethiopia",
+      "tagline": "From blueprint to reality.",
+      "about": "Geretta Consult describes itself as an architectural and engineering consultancy serving Ethiopia since 1997, working on commercial, cultural, residential, industrial and institutional buildings.",
+      "ad_images": [
+        "img/p-14.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Since",
+          "value": "1997 (per ad)"
+        },
+        {
+          "label": "Figure in ad",
+          "value": "150 projects and growing"
+        }
+      ],
+      "areas": [],
+      "contact": {
+        "phone": "",
+        "whatsapp": "",
+        "email": "",
+        "website": "",
+        "note": "Contact details as printed in the ad"
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "allstate-bezuneh",
+      "name": "Abera Bezuneh, Allstate",
+      "published": true,
+      "featured": false,
+      "type": "Insurance",
+      "group": "insurance",
+      "kicker": "Real Estate America & Insurance",
+      "country": "US",
+      "tagline": "Auto, home, condo, renters, business and life insurance in the DMV.",
+      "about": "Abera Bezuneh, Agency Principal at Fairfax Insurance & Financial Services, advertises auto, home, condo, renters, business and life insurance for the Ethiopian community in the DMV.",
+      "ad_images": [
+        "img/p-09.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Location",
+          "value": "Fairfax, VA"
+        },
+        {
+          "label": "Lines",
+          "value": "Auto · Home · Condo · Renters · Business · Life"
+        }
+      ],
+      "areas": [],
+      "contact": {
+        "phone": "",
+        "whatsapp": "",
+        "email": "",
+        "website": "",
+        "note": "Contact details as printed in the ad"
+      },
+      "expires": "2027-12-31"
+    },
+    {
+      "id": "muller-dessie",
+      "name": "Muller (Mulugeta) Dessie",
+      "published": true,
+      "featured": false,
+      "type": "Real estate agent",
+      "group": "agents",
+      "kicker": "Real Estate Ethiopia & America",
+      "country": "US",
+      "tagline": "Happy Homes · DC · MD · VA.",
+      "about": "Muller Dessie is a real estate consultant serving Washington, DC, Maryland and Virginia. He advertises independently under his own brokerage, eXp Realty.",
+      "ad_images": [
+        "img/p-13.jpg"
+      ],
+      "facts": [
+        {
+          "label": "Brokerage",
+          "value": "eXp Realty"
+        },
+        {
+          "label": "Licenses (per ad)",
+          "value": "MD 659310 · DC SP200201978 · VA 0225221898"
+        },
+        {
+          "label": "Recognition (per ad)",
+          "value": "Washingtonian Top Agents 2022 and 2024"
+        }
+      ],
+      "areas": [],
+      "contact": {
+        "phone": "(301) 366-6058",
+        "whatsapp": "3013666058",
+        "email": "",
+        "website": "www.HappyHomesDC.com",
+        "note": "Office (888) 860-7369"
+      },
+      "expires": "2027-12-31"
+    }
+  ]
+}

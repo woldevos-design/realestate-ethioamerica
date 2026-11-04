@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RealEstate EthioAmerica</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=Playfair+Display:ital,wght@0,600..900;1,600..800&family=Pinyon+Script&family=Noto+Sans+Ethiopic:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+/* Plan: the printed magazine, made browsable. White paper, black type, one lemon-yellow accent.
+   Layout: a magazine masthead, cover-style hero, then sections headed by letter-spaced kickers
+   ("REALESTATE ETHIOPIA & LAW") exactly as in the print issue. Single light theme by choice. */
+:root{
+  --paper:#ffffff;
+  --ink:#121212;
+  --charcoal:#2c2c2a;
+  --muted:#686860;
+  --rule:#e6e3d8;
+  --yellow:#ffe500;
+  --yellow-soft:#fff8c2;
+  --night:#0f1521;
+  --display:"Playfair Display", Georgia, "Times New Roman", serif;
+  --sans:"Archivo", "Helvetica Neue", Helvetica, Arial, "Noto Sans Ethiopic", sans-serif;
+  --script:"Pinyon Script", "Snell Roundhand", cursive;
+  --ethi:"Noto Sans Ethiopic", "Archivo", sans-serif;
+  color-scheme: light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion: reduce){html{scroll-behavior:auto} *{transition:none!important;animation:none!important}}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+html[lang="am"] body{font-family:var(--ethi)}
+img{max-width:100%;display:block}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--ink);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;font-weight:800}
+html[lang="am"] h1,html[lang="am"] h2,html[lang="am"] h3{font-family:var(--ethi);font-weight:800}
+p{margin:0}
+.wrap{max-width:1180px;margin:0 auto;padding:0 20px}
+.prose{max-width:66ch}
+.prose p+p{margin-top:1em}
+
+/* preview strip */
+.preview{background:var(--ink);color:#f3f1e8;font-size:13px;text-align:center;padding:7px 16px;letter-spacing:.02em}
+.preview b{color:var(--yellow);font-weight:700}
+
+/* masthead */
+header.top{border-bottom:1px solid var(--rule);background:var(--paper);position:sticky;top:0;z-index:20}
+.mast{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0 10px}
+.logo{text-decoration:none;display:inline-flex;flex-direction:column;line-height:1}
+.logo .kick{font-size:10px;letter-spacing:.32em;font-weight:600;color:var(--muted);margin-bottom:4px}
+.logo .re{font-family:var(--sans);font-weight:850;font-stretch:88%;font-size:34px;letter-spacing:-.035em}
+.logo .ea{align-self:flex-start;background:var(--yellow);font-family:var(--display);font-style:italic;font-weight:800;font-size:17px;padding:1px 10px 2px;margin-top:2px}
+.mast-right{display:flex;align-items:center;gap:10px}
+.lang{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden}
+.lang button{border:0;background:transparent;font:600 13px var(--sans);padding:6px 12px;cursor:pointer;color:var(--ink)}
+.lang button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.lang button:last-child{font-family:var(--ethi)}
+.menu-btn{display:none;border:1.5px solid var(--ink);background:var(--paper);font:700 13px var(--sans);padding:7px 12px;border-radius:999px;cursor:pointer}
+nav.main{display:flex;flex-wrap:wrap;gap:2px 18px;padding:0 0 12px}
+nav.main a{text-decoration:none;font-weight:600;font-size:14.5px;padding:4px 0;border-bottom:3px solid transparent}
+nav.main a:hover{border-bottom-color:var(--rule)}
+nav.main a[aria-current="page"]{border-bottom-color:var(--yellow)}
+@media (max-width:820px){
+  .menu-btn{display:inline-block}
+  nav.main{display:none;flex-direction:column;gap:0;padding-bottom:10px}
+  nav.main.open{display:flex}
+  nav.main a{padding:10px 0;border-bottom:1px solid var(--rule);font-size:16px}
+  .logo .re{font-size:28px}
+}
+
+/* kicker */
+.kicker{font-family:var(--sans);font-size:11.5px;font-weight:650;letter-spacing:.34em;text-transform:uppercase;color:var(--charcoal)}
+.kicker b{font-weight:850}
+html[lang="am"] .kicker{letter-spacing:.08em}
+.script{font-family:var(--script);font-weight:400;color:var(--yellow);line-height:.8}
+
+/* hero (cover) */
+.cover{position:relative;color:#fff;background:var(--night);overflow:hidden}
+.cover img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.92}
+.cover::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,12,18,.78) 0%,rgba(10,12,18,.35) 55%,rgba(10,12,18,.65) 100%)}
+.cover .inner{position:relative;z-index:1;display:grid;grid-template-columns:1.25fr .9fr;gap:24px;padding:56px 20px 0;max-width:1180px;margin:0 auto}
+.cover .issue{font-size:12px;letter-spacing:.3em;font-weight:650;text-transform:uppercase;opacity:.9}
+.cover .whats{font-size:clamp(54px,8vw,104px);display:block;margin:18px 0 -8px 4px}
+.cover h1{font-family:var(--sans);font-weight:850;font-stretch:80%;font-size:clamp(52px,8.4vw,118px);letter-spacing:-.04em;line-height:.9}
+html[lang="am"] .cover h1{font-family:var(--ethi);font-size:clamp(40px,6vw,80px);line-height:1.05}
+.cover h1 i{font-style:italic;font-stretch:100%}
+.cover .lede{max-width:44ch;margin-top:18px;font-size:18px;opacity:.95}
+.cover .ctas{display:flex;flex-wrap:wrap;gap:10px;margin:26px 0 44px}
+.connect{align-self:end;text-align:right;padding-bottom:44px}
+.connect .mir{font-family:var(--display);font-weight:600;font-size:clamp(38px,5vw,64px);line-height:.92;letter-spacing:-.02em}
+.connect .mir em{display:block;color:var(--yellow);font-style:normal;font-family:var(--sans);font-weight:800;font-size:14px;letter-spacing:.2em;margin-top:8px}
+.connect .w{font-family:var(--display);font-size:clamp(34px,4vw,50px);font-weight:800;margin-top:22px;line-height:1}
+.connect .w span{font-family:var(--script);font-weight:400;color:var(--yellow);font-size:1.1em;margin-left:6px}
+.connect ul{list-style:none;margin:6px 0 0;padding:0;font-family:var(--display);font-weight:700;font-size:clamp(20px,2.2vw,27px);line-height:1.1}
+.strip{position:relative;z-index:1;background:var(--yellow);color:var(--ink)}
+.strip .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
+.strip strong{font-family:var(--display);font-weight:800;font-size:20px}
+@media (max-width:820px){.cover .inner{grid-template-columns:1fr;padding-top:36px}.connect{text-align:left;padding-bottom:28px}.cover .ctas{margin-bottom:10px}}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;font:700 15px var(--sans);text-decoration:none;padding:12px 20px;border-radius:999px;border:2px solid var(--ink);background:var(--ink);color:var(--paper);cursor:pointer}
+.btn.y{background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.sm{padding:8px 14px;font-size:14px}
+.btn:hover{filter:brightness(.95)}
+
+/* sections */
+section.block{padding:56px 0;border-bottom:1px solid var(--rule)}
+.sec-head{display:flex;flex-direction:column;gap:10px;margin-bottom:26px}
+.sec-head h2{font-size:clamp(32px,4.2vw,50px)}
+.sec-head .sub{color:var(--muted);max-width:62ch}
+.page-head{padding:44px 0 28px;border-bottom:1px solid var(--rule)}
+.page-head h1{font-size:clamp(40px,6vw,72px);margin-top:12px}
+.page-head p{margin-top:14px;color:var(--charcoal);max-width:62ch;font-size:18px}
+
+/* cards */
+.grid{display:grid;gap:22px}
+.g3{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.g4{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}
+.card{display:flex;flex-direction:column;text-decoration:none;color:inherit;border-top:3px solid var(--ink);padding-top:12px;gap:8px}
+.card .thumb{aspect-ratio:3/4;overflow:hidden;background:#f2f0e9;border:1px solid var(--rule)}
+.card .thumb img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .4s}
+.card:hover .thumb img{transform:scale(1.03)}
+.card h3{font-size:24px}
+.card .meta{font-size:13.5px;color:var(--muted)}
+.tag{display:inline-block;font:700 11px var(--sans);letter-spacing:.14em;text-transform:uppercase;padding:3px 8px;border:1.5px solid var(--ink)}
+.tag.ad{border-color:var(--muted);color:var(--muted)}
+.tag.sel{background:var(--yellow);border-color:var(--yellow)}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+
+/* news */
+.story{display:grid;grid-template-columns:120px 1fr;gap:18px;padding:18px 0;border-top:1px solid var(--rule);text-decoration:none}
+.story .k{font-size:12px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+.story h3{font-size:25px}
+.story p{color:var(--charcoal);margin-top:6px;font-size:16px}
+@media (max-width:600px){.story{grid-template-columns:1fr;gap:4px}}
+.streams{display:grid;grid-template-columns:1.4fr 1fr;gap:40px}
+@media (max-width:900px){.streams{grid-template-columns:1fr}}
+.soon{background:var(--yellow-soft);padding:22px;border-left:6px solid var(--yellow)}
+.soon h3{font-size:30px;margin-bottom:6px}
+.soon li{margin:12px 0}
+.soon ul{padding-left:18px;margin:0}
+.soon .src{font-size:12.5px;color:var(--muted)}
+
+/* category tiles */
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px}
+.tile{display:flex;flex-direction:column;justify-content:space-between;min-height:118px;padding:16px;border:1.5px solid var(--ink);text-decoration:none;background:var(--paper)}
+.tile:hover{background:var(--yellow)}
+.tile b{font-family:var(--display);font-size:22px;line-height:1.1}
+.tile span{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--muted)}
+
+/* profile */
+.profile{display:grid;grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);gap:44px;padding:36px 20px 56px}
+@media (max-width:900px){.profile{grid-template-columns:1fr}}
+.adframe{border:1px solid var(--rule);background:#f4f2ea;position:relative}
+.adframe .lbl{position:absolute;top:10px;left:10px;background:rgba(255,255,255,.92);font:700 11px var(--sans);letter-spacing:.18em;padding:4px 8px;text-transform:uppercase}
+.facts{list-style:none;padding:0;margin:14px 0 0;border-top:1px solid var(--rule)}
+.facts li{padding:10px 0;border-bottom:1px solid var(--rule);display:grid;grid-template-columns:150px 1fr;gap:12px;font-size:15.5px}
+.facts li span:first-child{color:var(--muted);font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:650;padding-top:2px}
+@media (max-width:520px){.facts li{grid-template-columns:1fr;gap:2px}}
+.contact-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.contact-row .raw{flex-basis:100%;font-size:13.5px;color:var(--muted)}
+.notice{border:1.5px solid var(--ink);padding:14px 16px;font-size:14px;background:var(--paper);margin-top:20px}
+.notice strong{display:block;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:4px}
+
+/* forms */
+form.f{display:grid;gap:12px;margin-top:16px}
+.f .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:560px){.f .row{grid-template-columns:1fr}}
+.f label{display:grid;gap:4px;font-size:13.5px;font-weight:650}
+.f input,.f select,.f textarea{font:16px var(--sans);padding:11px 12px;border:1.5px solid #bdbab0;border-radius:4px;background:var(--paper);color:var(--ink);width:100%}
+html[lang="am"] .f input,html[lang="am"] .f textarea{font-family:var(--ethi)}
+.f input:focus,.f select:focus,.f textarea:focus{border-color:var(--ink);outline:none;box-shadow:0 0 0 3px var(--yellow)}
+.f .check{display:flex;gap:10px;align-items:flex-start;font-weight:400;font-size:13.5px;color:var(--charcoal)}
+.f .check input{width:auto;margin-top:3px}
+.f .done{display:none;background:var(--yellow-soft);border-left:5px solid var(--yellow);padding:12px 14px;font-size:14.5px}
+.f.sent .done{display:block}
+
+/* packages */
+.pk{border:1.5px solid var(--ink);padding:22px;display:flex;flex-direction:column;gap:10px;background:var(--paper)}
+.pk.hl{background:var(--yellow)}
+.pk h3{font-size:30px}
+.pk ul{margin:0;padding-left:18px;font-size:15.5px}
+.pk .price{font-weight:800;font-size:14px;letter-spacing:.12em;text-transform:uppercase}
+
+/* steps */
+ol.steps{list-style:none;counter-reset:s;padding:0;margin:0;display:grid;gap:0}
+ol.steps li{counter-increment:s;display:grid;grid-template-columns:72px 1fr;gap:16px;padding:20px 0;border-top:1px solid var(--rule)}
+ol.steps li::before{content:counter(s,decimal-leading-zero);font-family:var(--display);font-size:44px;font-weight:800;line-height:1;color:var(--ink);background:linear-gradient(transparent 58%,var(--yellow) 58%)}
+ol.steps h3{font-size:24px;margin-bottom:6px}
+ol.steps p{color:var(--charcoal);font-size:16px}
+
+/* magazine viewer */
+.viewer{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:30px;padding:30px 20px 50px}
+@media (max-width:900px){.viewer{grid-template-columns:1fr}}
+.stage{background:#ecebe5;padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px}
+.stage img{max-height:78vh;width:auto;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.stage .ctl{display:flex;gap:10px;align-items:center;font-variant-numeric:tabular-nums;font-weight:700}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
+.thumbs button{padding:0;border:2px solid transparent;background:none;cursor:pointer}
+.thumbs button[aria-current="true"]{border-color:var(--ink)}
+.toc{list-style:none;padding:0;margin:10px 0 0;font-size:15px}
+.toc li{padding:7px 0;border-bottom:1px solid var(--rule)}
+.toc li.h{font-weight:800;font-size:12px;letter-spacing:.2em;text-transform:uppercase;padding-top:16px;border-bottom:0}
+
+/* area map list */
+.areas{columns:3 230px;column-gap:28px}
+.area{break-inside:avoid;padding:12px 0;border-top:1px solid var(--rule)}
+.area b{font-family:var(--display);font-size:21px}
+.area div{font-size:14px;color:var(--muted)}
+
+/* newsletter */
+.join{background:var(--night);color:#fff}
+.join .wrap{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;padding-top:46px;padding-bottom:46px;align-items:center}
+.join h2{font-size:clamp(30px,4vw,46px)}
+.join p{opacity:.85;margin-top:10px}
+.join form{display:flex;gap:8px;flex-wrap:wrap}
+.join input{flex:1 1 220px;font:16px var(--sans);padding:12px 14px;border:0;border-radius:999px}
+.join .ch{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.join .msg{flex-basis:100%;font-size:14px;color:var(--yellow);min-height:1em}
+@media (max-width:820px){.join .wrap{grid-template-columns:1fr}}
+
+/* footer */
+footer{background:var(--paper);border-top:6px solid var(--yellow);padding:36px 0 50px;font-size:14px}
+footer .cols{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:28px}
+@media (max-width:820px){footer .cols{grid-template-columns:1fr}}
+footer .disc{font-size:13px;color:var(--charcoal);line-height:1.55}
+footer .disc+.disc{margin-top:10px}
+footer .am{font-family:var(--ethi)}
+footer a{display:block;text-decoration:none;padding:3px 0}
+footer a:hover{text-decoration:underline}
+footer h4{margin:0 0 8px;font-size:12px;letter-spacing:.2em;text-transform:uppercase}
+.eho{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-weight:700;font-size:12.5px;letter-spacing:.06em}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+@media (max-width:900px){.split{grid-template-columns:1fr}}
+.photo-band img{width:100%;height:360px;object-fit:cover}
+.pill-filter{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 22px}
+.pill-filter button{font:650 14px var(--sans);padding:7px 14px;border-radius:999px;border:1.5px solid var(--ink);background:var(--paper);cursor:pointer;color:var(--ink)}
+.pill-filter button[aria-pressed="true"]{background:var(--ink);color:var(--paper)}
+.search{font:16px var(--sans);padding:11px 14px;border:1.5px solid var(--ink);border-radius:999px;width:min(420px,100%);margin-bottom:14px}
+.muted{color:var(--muted)}
+.small{font-size:14px}
+.hr{height:1px;background:var(--rule);margin:26px 0}
+.agent{display:grid;grid-template-columns:200px 1fr;gap:22px;border:1.5px solid var(--ink);padding:18px}
+@media (max-width:600px){.agent{grid-template-columns:1fr}}
+.empty{border:1.5px dashed #bdbab0;padding:18px;color:var(--muted);font-size:15px}
+</style>
+</head>
+<body>
+<!-- Netlify Forms: hidden copies so Netlify registers each form at deploy time -->
+<div hidden aria-hidden="true">
+<form name="inquiry" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="advertiser"><input name="name"><input name="phone"><input name="email"><input name="location"><input name="details"><textarea name="message"></textarea></form>
+<form name="apply" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="name"><input name="phone"><input name="email"><input name="location"><input name="details"><textarea name="message"></textarea></form>
+<form name="print-copy" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="name"><input name="phone"><input name="email"><input name="location"><input name="details"><textarea name="message"></textarea></form>
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="name"><input name="phone"><input name="email"><input name="location"><input name="details"><textarea name="message"></textarea></form>
+<form name="newsletter" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="email"></form>
+</div>
+<script>
+/* Netlify Identity invite and password links land on the home page; send them to the admin panel. */
+if(/(invite|recovery|confirmation|email_change)_token=/.test(location.hash)){ location.replace("/admin/"+location.hash); }
+</script>
+<div class="preview" id="preview"></div>
+<header class="top">
+  <div class="wrap">
+    <div class="mast">
+      <a class="logo" href="#home" aria-label="RealEstate EthioAmerica home">
+        <span class="kick" data-t="kicker">THE DIASPORA RESOURCE</span>
+        <span class="re">RealEstate</span>
+        <span class="ea">EthioAmerica</span>
+      </a>
+      <div class="mast-right">
+        <div class="lang" role="group" aria-label="Language">
+          <button type="button" id="lang-en" aria-pressed="true">EN</button>
+          <button type="button" id="lang-am" aria-pressed="false">አማርኛ</button>
+        </div>
+        <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
+      </div>
+    </div>
+    <nav class="main" id="nav" aria-label="Main"></nav>
+  </div>
+</header>
+<main id="view" tabindex="-1"></main>
+<section class="join" aria-labelledby="join-h">
+  <div class="wrap">
+    <div>
+      <h2 id="join-h" data-t="joinH">Get each issue and the news between issues.</h2>
+      <p data-t="joinP">New projects, policy changes and diaspora events, sent by email, Telegram or WhatsApp. Free.</p>
+    </div>
+    <div>
+      <form id="join-form" novalidate>
+        <label class="sr" for="join-email" style="position:absolute;left:-9999px">Email</label>
+        <input id="join-email" type="email" placeholder="Your email" required>
+        <button class="btn y" type="submit" data-t="join">Join</button>
+        <div class="msg" id="join-msg" role="status"></div>
+      </form>
+      <div class="ch">
+        <a class="btn ghost sm" href="#contact" data-t="tg">Telegram channel</a>
+        <a class="btn ghost sm" href="#contact" data-t="wa">WhatsApp channel</a>
+      </div>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap cols">
+    <div>
+      <p class="disc"><strong>Advertisement.</strong> RealEstate EthioAmerica is a publisher, not a real estate broker or agent. We do not sell, broker, endorse or guarantee any property, project, product or service, and we have not independently verified advertisers' claims. Do your own due diligence and consult a licensed attorney before any purchase.</p>
+      <p class="disc am" lang="am">ማስታወቂያ። ሪል እስቴት ኢትዮአሜሪካ አሳታሚ ነው፤ የሪል እስቴት ደላላ ወይም ወኪል አይደለም። ማንኛውንም ንብረት፣ ፕሮጀክት፣ ምርት ወይም አገልግሎት አንሸጥም፣ አናደላልም፣ አንደግፍም ወይም ዋስትና አንሰጥም፤ የአስተዋዋቂዎችን መግለጫዎችም በራሳችን አላረጋገጥንም። ማንኛውንም ግዢ ከመፈጸምዎ በፊት የራስዎን ማጣራት ያድርጉ፣ ፈቃድ ያለው ጠበቃም ያማክሩ።</p>
+      <div class="eho"><svg width="26" height="22" viewBox="0 0 26 22" aria-hidden="true"><path d="M13 1 1 10h3v11h18V10h3z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M8 12h10M8 16h10" stroke="currentColor" stroke-width="2"/></svg>Equal Housing Opportunity (applies to US agent advertisements)</div>
+    </div>
+    <div>
+      <h4 data-t="fMag">Magazine</h4>
+      <a href="#magazine">Issue 01 · January 2027</a>
+      <a href="#news">News</a>
+      <a href="#advertise">Advertise</a>
+      <a href="#about">About the publishers</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div>
+      <h4 data-t="fLegal">Policies</h4>
+      <a href="#standards">Our Listing Standards</a>
+      <a href="#disclaimer">Full Disclaimer</a>
+      <a href="#disclaimer">Privacy Policy (draft pending)</a>
+      <a href="#disclaimer">Terms of Use (draft pending)</a>
+      <p class="muted small" style="margin-top:12px">© 2027 RealEstate EthioAmerica · DC · Maryland · Virginia</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var LANG = "en";
+try { LANG = localStorage.getItem("rea-lang") || "en"; } catch(e) {}
+
+var T = {
+  en:{
+    preview:"<b>Preview build</b> · sample content from Issue 01 · forms are not connected yet",
+    kicker:"THE DIASPORA RESOURCE",
+    nav:{home:"Home",news:"News",developers:"Developers",partners:"Business Partners",dmv:"Buy & Sell in the DMV",market:"Ethiopia Market",how:"How It Works",magazine:"Magazine",advertise:"Advertise",contact:"Contact"},
+    issue:"Issue 01 · January 2027",
+    whats:"What's",
+    heroH:"New <i>in Addis</i>",
+    heroP:"A real estate magazine for the Ethiopian diaspora: advertisers building in Addis Ababa and serving the DMV, plus the news that matters before you buy.",
+    read:"Read the magazine", adv:"Advertise with us",
+    mir:"Move in ready", mirSub:"ADDIS' BEST NEW PROPERTIES",
+    connect:"Connect", with:"with",
+    conList:["builders","architects","developers","attorneys","banks","movers"],
+    strip:"Travel and Lifestyle: Diaspora",
+    joinH:"Get each issue and the news between issues.",
+    joinP:"New projects, policy changes and diaspora events, sent by email, Telegram or WhatsApp. Free.",
+    join:"Join", tg:"Telegram channel", wa:"WhatsApp channel",
+    fMag:"Magazine", fLegal:"Policies",
+    amNote:""
+  },
+  am:{
+    preview:"<b>ቅድመ እይታ</b> · ከቁጥር 01 የተወሰደ ናሙና ይዘት · ቅጾቹ ገና አልተገናኙም · <span style='opacity:.8'>Amharic preview: translator to review</span>",
+    kicker:"የዳያስፖራው መረጃ ምንጭ",
+    nav:{home:"መነሻ",news:"ዜና",developers:"አልሚዎች",partners:"የንግድ አጋሮች",dmv:"በዲሲ፣ ሜሪላንድና ቨርጂኒያ ግዢና ሽያጭ",market:"የኢትዮጵያ ገበያ",how:"እንዴት ይሠራል",magazine:"መጽሔት",advertise:"ያስተዋውቁ",contact:"ያግኙን"},
+    issue:"ቁጥር 01 · ጥር 2027",
+    whats:"What's",
+    heroH:"በአዲስ አበባ አዲስ ምን አለ",
+    heroP:"ለኢትዮጵያ ዳያስፖራ የተዘጋጀ የሪል እስቴት መጽሔት፦ በአዲስ አበባ የሚገነቡና በዲሲ አካባቢ የሚያገለግሉ አስተዋዋቂዎች፣ እንዲሁም ከመግዛትዎ በፊት ሊያውቋቸው የሚገቡ ዜናዎች።",
+    read:"መጽሔቱን ያንብቡ", adv:"ከእኛ ጋር ያስተዋውቁ",
+    mir:"ለመግባት ዝግጁ", mirSub:"የአዲስ አበባ አዳዲስ ቤቶች",
+    connect:"ይገናኙ", with:"ከ",
+    conList:["ገንቢዎች","አርክቴክቶች","አልሚዎች","ጠበቆች","ባንኮች","አጓጓዦች"],
+    strip:"ጉዞና አኗኗር፦ ዳያስፖራ",
+    joinH:"እያንዳንዱን እትምና በመካከል ያሉ ዜናዎችን ያግኙ።",
+    joinP:"አዳዲስ ፕሮጀክቶች፣ የፖሊሲ ለውጦችና የዳያስፖራ ዝግጅቶች በኢሜይል፣ በቴሌግራም ወይም በዋትስአፕ። በነጻ።",
+    join:"ይቀላቀሉ", tg:"የቴሌግራም ቻናል", wa:"የዋትስአፕ ቻናል",
+    fMag:"መጽሔት", fLegal:"ፖሊሲዎች",
+    amNote:"<p class='notice'><strong>አማርኛ</strong>የዚህ ገጽ ዝርዝር ይዘት በእንግሊዝኛ ነው። የአማርኛ ትርጉም በሚቀጥለው ዝመና ይጨመራል።</p>"
+  }
+};
+function siteText(k){
+  var h = SITE.hero||{}, L = LANG==="am"?"am":"en";
+  var map = {issue:h["issue_label_"+L], heroH:h["headline_"+L], heroP:h["intro_"+L], strip:h["strip_"+L], preview:SITE["preview_banner_"+L]};
+  return map[k];
+}
+function t(k){ var o = siteText(k); if(o) return o; return (T[LANG] && T[LANG][k] !== undefined) ? T[LANG][k] : T.en[k]; }
+
+/* ---------- data: loaded from /content (edited in the admin panel at /admin) ---------- */
+var ADS = [], STORIES = [], SOON = [], SITE = {}, MAG = {};
+var GROUPS = {
+  law:{label:"& Law", title:"Attorneys", kick:"Real Estate Ethiopia & Law"},
+  banking:{label:"& Banking", title:"Banks and lenders", kick:"Real Estate Ethiopia & Banking"},
+  architecture:{label:"& Architecture", title:"Architects and engineers", kick:"Real Estate Ethiopia & Architecture"},
+  insurance:{label:"& Insurance", title:"Insurance", kick:"Real Estate America & Insurance"},
+  contractors:{label:"& Construction", title:"Contractors", kick:"Real Estate Ethiopia & Construction"},
+  furniture:{label:"& Interiors", title:"Furniture and interior design", kick:"Real Estate Ethiopia & Interiors"}
+};
+
+/* ---------- helpers ---------- */
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c];});}
+function kick(txt){ var parts = txt.split("&"); return '<div class="kicker">'+(parts.length>1? esc(parts[0])+'&nbsp;<b>&amp;</b>&nbsp;'+esc(parts[1]) : esc(txt))+'</div>'; }
+function pageImg(n){ var pg = (MAG.pages||[])[n-1]; return pg ? pg.image : ""; }
+function paras(txt){ return String(txt||"").split(/\n\s*\n/).filter(Boolean); }
+function adCard(a){
+  return '<a class="card" href="#adv-'+a.id+'"><div class="thumb"><img loading="lazy" src="'+esc(a.ad_images[0]||"")+'" alt="'+esc(a.name)+' advertisement in Issue 01"></div>'+
+    '<div class="tags"><span class="tag sel">Selected advertiser</span><span class="tag ad">Advertisement</span></div>'+
+    '<h3>'+esc(a.name)+'</h3><div class="meta">'+esc(a.type)+' · '+esc(a.country)+'</div><p class="small">'+esc(a.tagline)+'</p></a>';
+}
+function shortDisc(){ return '<div class="notice"><strong>Advertisement</strong>This page shows paid advertising supplied by the advertiser. RealEstate EthioAmerica is a publisher, not a broker or agent, and has not independently verified these claims. Inclusion is not an endorsement or guarantee. Do your own due diligence and consult a licensed attorney. <a href="#disclaimer">Full disclaimer</a></div>'; }
+function eduDisc(){ return '<div class="notice"><strong>General information</strong>This article is general information, not legal, tax or financial advice. Laws, rates and bank terms change; confirm everything with the institution or a licensed professional.</div>'; }
+function form(kind, extra){
+  var id = "f-"+kind;
+  return '<form class="f" id="'+id+'" data-kind="'+kind+'" novalidate>'+
+    '<div class="row"><label for="'+id+'-n">Full name<input id="'+id+'-n" name="name" autocomplete="name" required></label>'+
+    '<label for="'+id+'-p">Phone or WhatsApp<input id="'+id+'-p" name="phone" autocomplete="tel"></label></div>'+
+    '<div class="row"><label for="'+id+'-e">Email<input id="'+id+'-e" type="email" name="email" autocomplete="email" required></label>'+
+    '<label for="'+id+'-l">Where you live<input id="'+id+'-l" name="loc" placeholder="City, state"></label></div>'+
+    (extra||"")+
+    '<label for="'+id+'-m">Message<textarea id="'+id+'-m" name="msg" rows="4"></textarea></label>'+
+    '<label class="check" for="'+id+'-c"><input type="checkbox" id="'+id+'-c" required> I understand RealEstate EthioAmerica is a publisher, not a broker or agent, and the magazine team will pass my message to the advertiser named above.</label>'+
+    '<div><button class="btn" type="submit">Send message</button></div>'+
+    '<div class="done" role="status">Preview only: this form is not connected yet, so nothing was sent.</div></form>';
+}
+
+/* ---------- views ---------- */
+var V = {};
+V.home = function(){
+  var conList = t("conList").map(function(x){return "<li>"+esc(x)+"</li>";}).join("");
+  var featured = ADS.filter(function(a){return a.group==="developers" && a.featured;}).slice(0,4).map(adCard).join("");
+  var news = STORIES.map(storyRow).join("");
+  var soon = SOON.slice(0,3).map(soonLi).join("");
+  var tiles = [["#developers","Developers","Ethiopia"],["#partners-banking","Banks","& Banking"],["#partners-law","Attorneys","& Law"],["#partners-architecture","Architects","& Architecture"],["#partners-insurance","Insurance","& Insurance"],["#partners-contractors","Contractors","& Construction"],["#partners-furniture","Furniture & interiors","& Interiors"],["#dmv","Agents in the DMV","& America"]]
+    .map(function(x){return '<a class="tile" href="'+x[0]+'"><span>'+esc(x[2])+'</span><b>'+esc(x[1])+'</b></a>';}).join("");
+  return ''+
+  '<section class="cover" aria-label="Issue 01 cover">'+
+    '<img class="bg" src="'+esc((SITE.hero||{}).image||"")+'" alt="">'+
+    '<div class="inner">'+
+      '<div><div class="issue">'+t("issue")+'</div>'+
+        '<span class="script whats">'+t("whats")+'</span>'+
+        '<h1>'+t("heroH")+'</h1>'+
+        '<p class="lede">'+t("heroP")+'</p>'+
+        '<div class="ctas"><a class="btn y" href="#magazine">'+t("read")+'</a><a class="btn ghost" href="#advertise">'+t("adv")+'</a></div>'+
+      '</div>'+
+      '<div class="connect"><div class="mir">'+t("mir")+'<em>'+t("mirSub")+'</em></div>'+
+        '<div class="w">'+t("connect")+'<span>'+t("with")+'</span></div><ul>'+conList+'</ul></div>'+
+    '</div>'+
+    '<div class="strip"><div class="wrap"><strong>'+t("strip")+'</strong><a class="btn sm" href="#magazine">Flip through Issue 01</a></div></div>'+
+  '</section>'+
+  (LANG==="am"? '<div class="wrap">'+T.am.amNote+'</div>':'')+
+  '<section class="block"><div class="wrap">'+
+    '<div class="sec-head">'+kick("Realestate Ethiopia & Real Estate")+'<h2>Featured developers</h2><p class="sub">Developers selected for Issue 01 against our <a href="#standards">listing standards</a>. Every profile is a paid advertisement.</p></div>'+
+    '<div class="grid g4">'+featured+'</div>'+
+    '<p style="margin-top:22px"><a class="btn ghost sm" href="#developers">All developers</a></p>'+
+  '</div></section>'+
+  '<section class="block"><div class="wrap streams">'+
+    '<div><div class="sec-head">'+kick("Realestate Ethiopia & News")+'<h2>Now</h2></div>'+news+'<p style="margin-top:16px"><a class="btn ghost sm" href="#news">All news</a></p></div>'+
+    '<aside class="soon"><div class="kicker" style="margin-bottom:8px">What\'s next</div><h3>Coming soon</h3><ul>'+soon+'</ul></aside>'+
+  '</div></section>'+
+  '<section class="block"><div class="wrap">'+
+    '<div class="sec-head">'+kick("Realestate Ethiopia & Resource")+'<h2>Find the people you need</h2><p class="sub">Developers in Addis Ababa and the businesses around every purchase: banks, attorneys, architects, insurance, and agents here in the DMV.</p></div>'+
+    '<div class="tiles">'+tiles+'</div>'+
+  '</div></section>'+
+  '<section class="block photo-band" style="padding:0;border:0"><img src="'+esc(SITE.band_image||"")+'" alt="Addis Ababa skyline at night" loading="lazy"></section>';
+};
+function soonLi(s){ return '<li><a href="'+esc(s.link||'#news')+'">'+esc(s.text)+'</a><div class="src">'+esc(s.label||'')+'</div></li>'; }
+function storyRow(s){
+  return '<a class="story" href="#story-'+esc(s.id)+'"><div class="k">'+esc(s.category)+(s.sponsored?' · Sponsored':'')+'</div><div><h3>'+esc(s.title)+'</h3><p>'+esc(s.summary)+'</p><div class="meta small muted" style="margin-top:6px">'+esc(s.date_label)+'</div></div></a>';
+}
+V.news = function(){
+  var soon = SOON.map(soonLi).join("");
+  return head("Realestate Ethiopia & News","News, now and next","What is happening in Ethiopian real estate and banking today, and what advertisers and the community have coming. Sponsored stories are always labeled.")+
+  '<section class="block"><div class="wrap streams"><div><div class="kicker" style="margin-bottom:6px">Now</div>'+STORIES.map(storyRow).join("")+'</div>'+
+  '<aside class="soon"><div class="kicker" style="margin-bottom:8px">Coming soon</div><h3>What\'s next</h3><ul>'+soon+'</ul><p class="src" style="margin-top:14px">Items marked "Advertiser-provided" come from the advertiser\'s own materials.</p></aside></div></section>';
+};
+function story(s){
+  return '<article><div class="wrap page-head"><div class="kicker">'+esc(s.category)+'</div>'+(s.sponsored?'<div class="tags" style="margin-top:10px"><span class="tag ad">Sponsored</span></div>':'')+'<h1 style="font-size:clamp(34px,4.6vw,56px)">'+esc(s.title)+'</h1><p>'+esc(s.summary)+'</p><p class="small muted">By '+esc(s.author)+' · '+esc(s.date_label)+'</p></div>'+
+  '<div class="wrap" style="padding:30px 20px 56px"><div class="prose">'+paras(s.body).map(function(p){return "<p>"+esc(p)+"</p>";}).join("")+eduDisc()+
+  '<p style="margin-top:22px"><a class="btn ghost sm" href="#news">Back to news</a> <a class="btn sm" href="#partners-banking">Banks advertising in Issue 01</a></p></div></div></article>';
+}
+function head(k,h,p){ return '<div class="wrap page-head">'+kick(k)+'<h1>'+esc(h)+'</h1>'+(p?'<p>'+esc(p)+'</p>':'')+'</div>'+(LANG==="am"?'<div class="wrap">'+T.am.amNote+'</div>':''); }
+
+var devFilter = "All";
+V.developers = function(){
+  var devs = ADS.filter(function(a){return a.group==="developers";});
+  var types = ["All"].concat(devs.map(function(a){return a.type;}).filter(function(v,i,s){return s.indexOf(v)===i;}));
+  return head("Realestate Ethiopia & Real Estate","Developers","Developers and sales agencies advertising in Issue 01. Each was selected against our listing standards; their claims are their own.")+
+  '<section class="block"><div class="wrap">'+
+  '<input class="search" id="dev-q" type="search" placeholder="Search by name or area, e.g. Bole, Ayat" aria-label="Search developers">'+
+  '<div class="pill-filter" role="group" aria-label="Filter by type">'+types.map(function(x){return '<button type="button" data-f="'+esc(x)+'" aria-pressed="'+(x===devFilter)+'">'+esc(x)+'</button>';}).join("")+'</div>'+
+  '<div class="grid g4" id="dev-grid"></div><p id="dev-empty" class="empty" hidden>No developer matches that search. Try an area name such as Bole or Sarbet.</p>'+
+  '<div class="notice"><strong>About these listings</strong>Every developer profile is a paid advertisement. Selection means the developer provided the documents we ask for; it is not verification, an endorsement or a guarantee. <a href="#standards">How advertisers are selected</a></div>'+
+  '</div></section>';
+};
+function drawDevs(){
+  var q = (document.getElementById("dev-q")||{}).value||"";
+  q = q.toLowerCase().trim();
+  var list = ADS.filter(function(a){return a.group==="developers" && (devFilter==="All"||a.type===devFilter) && (!q || (a.name+" "+a.areas.join(" ")+" "+a.tagline).toLowerCase().indexOf(q)>-1);});
+  var g = document.getElementById("dev-grid"); if(!g) return;
+  g.innerHTML = list.map(adCard).join("");
+  document.getElementById("dev-empty").hidden = list.length>0;
+}
+V.partners = function(focus){
+  var order = ["banking","law","architecture","insurance","contractors","furniture"];
+  var html = head("Realestate Ethiopia & Resource","Business partners","The businesses around every purchase, grouped the way the magazine groups them. All listings are paid advertisements.")+
+  '<div class="wrap"><div class="pill-filter" style="margin-top:22px">'+order.map(function(g){return '<a class="btn ghost sm" href="#partners-'+g+'">'+esc(GROUPS[g].title)+'</a>';}).join("")+'</div></div>';
+  order.forEach(function(g){
+    var list = ADS.filter(function(a){return a.group===g;});
+    html += '<section class="block" id="sec-'+g+'"><div class="wrap"><div class="sec-head">'+kick(GROUPS[g].kick)+'<h2>'+esc(GROUPS[g].title)+'</h2></div>'+
+      (list.length? '<div class="grid g4">'+list.map(adCard).join("")+'</div>' : '<p class="empty">No advertisers in this category yet. <a href="#advertise">Apply to advertise in Issue 02</a>.</p>')+'</div></section>';
+  });
+  return html;
+};
+function profile(a){
+  var c = a.contact||{};
+  var btns = [];
+  if(c.phone){ var tel = c.phone.replace(/[^+\d]/g,""); btns.push('<a class="btn sm" href="tel:'+tel+'">Call</a>'); }
+  if(c.whatsapp){ btns.push('<a class="btn ghost sm" href="https://wa.me/'+esc(c.whatsapp.replace(/[^\d]/g,""))+'">WhatsApp</a>'); }
+  if(c.email) btns.push('<a class="btn ghost sm" href="mailto:'+esc(c.email)+'">Email</a>');
+  if(c.website) btns.push('<a class="btn ghost sm" href="https://'+esc(c.website.replace(/^https?:\/\//,""))+'">Website</a>');
+  var raw = [c.phone,c.email,c.website,c.note].filter(Boolean).map(esc).join(" · ");
+  var ads = (a.ad_images||[]).map(function(src,i){return '<div class="adframe" style="margin-bottom:12px"><span class="lbl">Advertisement</span><img src="'+esc(src)+'" alt="'+esc(a.name)+' advertisement '+(i+1)+'"></div>';}).join("");
+  var back = a.group==="developers" ? "#developers" : (a.group==="agents" ? "#dmv" : "#partners-"+a.group);
+  return '<div class="wrap" style="padding-top:26px"><a class="small" href="'+back+'">← Back</a></div>'+
+  '<div class="wrap profile"><div>'+ads+'<p class="small muted" style="margin-top:8px">As supplied by the advertiser.</p></div>'+
+  '<div>'+kick(a.kicker||"")+'<h1 style="font-size:clamp(38px,5vw,60px);margin-top:12px">'+esc(a.name)+'</h1>'+
+  '<div class="tags" style="margin-top:12px"><span class="tag sel">Selected advertiser · Issue 01</span><span class="tag ad">Advertisement</span><span class="tag">'+esc(a.type)+'</span><span class="tag">'+esc(a.country)+'</span></div>'+
+  '<p style="font-family:var(--display);font-size:24px;line-height:1.25;margin-top:18px">'+esc(a.tagline)+'</p>'+
+  '<p style="margin-top:14px"><span class="kicker" style="letter-spacing:.2em">In the advertiser\'s words</span><br>'+esc(a.about)+'</p>'+
+  '<ul class="facts">'+(a.facts||[]).map(function(f){return '<li><span>'+esc(f.label)+'</span><span>'+esc(f.value)+'</span></li>';}).join("")+
+   ((a.areas||[]).length?'<li><span>Areas named</span><span>'+a.areas.map(esc).join(" · ")+'</span></li>':'')+'</ul>'+
+  '<div class="contact-row">'+btns.join("")+(raw?'<div class="raw">'+raw+'</div>':'')+'</div>'+
+  shortDisc()+
+  '<h2 style="font-size:30px;margin-top:34px">Ask '+esc(a.name)+' a question</h2>'+
+  form("inq-"+a.id, '<label for="i-'+a.id+'">I\'m interested in<select id="i-'+a.id+'"><option>General information</option><option>Pricing and payment plans</option><option>A site visit or virtual tour</option><option>Documents for a project</option></select></label>')+
+  '</div></div>';
+}
+V.dmv = function(){
+  var agents = ADS.filter(function(a){return a.group==="agents";});
+  var guides = [["Find your place","Buying a home in the DMV starts with your budget, the areas you want, and a conversation with a lender about what you qualify for. Requirements vary case by case."],["Ready to sell","Preparing to sell means pricing from recent closed sales, small repairs that matter to buyers, and a clear plan for your next move."],["Investing from abroad","Buying from Ethiopia is possible. Cash or loan options may be available depending on your circumstances and the lender. A local agent and attorney can explain the process."],["Cash or financing","Compare the full cost of each option: down payment, closing costs, interest, and how long you plan to hold the property."]];
+  return head("Realestate Ethiopia & America","Buy & sell in the DMV","Short guides for the diaspora buying, selling or investing in Washington, DC, Maryland and Virginia, and the agents who advertise with us.")+
+  '<section class="block"><div class="wrap"><div class="grid g4">'+guides.map(function(g){return '<div class="card"><h3>'+esc(g[0])+'</h3><p class="small">'+esc(g[1])+'</p></div>';}).join("")+'</div>'+eduDisc()+'</div></section>'+
+  '<section class="block"><div class="wrap"><div class="sec-head">'+kick("Realestate Ethiopia & America")+'<h2>Agents advertising in Issue 01</h2><p class="sub">Each agent advertises independently under their own brokerage. RealEstate EthioAmerica does not represent buyers or sellers.</p></div>'+
+  agents.map(function(a){return '<div class="agent"><img src="'+esc(a.ad_images[0]||"")+'" alt="'+esc(a.name)+' advertisement" loading="lazy"><div><div class="tags"><span class="tag ad">Advertisement</span></div><h3 style="font-size:30px;margin-top:8px">'+esc(a.name)+'</h3><p class="muted">'+(a.facts||[]).slice(0,2).map(function(f){return esc(f.label)+': '+esc(f.value);}).join(' · ')+'</p><p style="margin-top:10px">'+esc(a.about)+'</p><div class="contact-row"><a class="btn sm" href="#adv-'+a.id+'">View profile</a></div><div class="eho">Equal Housing Opportunity</div></div></div>';}).join("")+
+  '<p class="empty" style="margin-top:18px">Are you an agent serving the Ethiopian community? <a href="#advertise">Apply to advertise</a>. Agent ads must show brokerage name and license.</p></div></section>';
+};
+V.market = function(){
+  var map = {};
+  ADS.forEach(function(a){(a.areas||[]).forEach(function(ar){(map[ar]=map[ar]||[]).push(a);});});
+  var names = Object.keys(map).sort();
+  return head("Realestate Ethiopia & Market","Ethiopia market","Where Issue 01 advertisers say they are building in Addis Ababa. Market reports and area guides arrive in the next update.")+
+  '<section class="block"><div class="wrap"><div class="areas">'+names.map(function(n){return '<div class="area"><b>'+esc(n)+'</b><div>'+map[n].map(function(a){return '<a href="#adv-'+a.id+'">'+esc(a.name)+'</a>';}).join(", ")+'</div></div>';}).join("")+'</div>'+
+  '<div class="notice"><strong>Before you compare prices</strong>Prices, exchange rates and payment terms change often. Ask each developer for current prices in writing, and check the USD to ETB rate with your bank on the day you pay.</div></div></section>';
+};
+V.how = function(){
+  var steps = [["Set your budget and funding","Decide what you can spend, and whether you will pay in cash, on a developer payment plan, or with a diaspora mortgage. Banks set their own eligibility and terms."],["Shortlist and ask for documents","Pick a few projects and ask each developer for the land title (karta) or lease, building permit, payment schedule and a sample contract. Ask to see a completed project."],["Get your own legal advice","Have an Ethiopian attorney who works for you review the contract and documents before you pay anything."],["Arrange a power of attorney","If you cannot be there in person, a power of attorney can let someone act for you. Ethiopian embassies and consulates can explain the process."],["Pay through proper channels","Use bank transfers or foreign currency accounts that leave a clear record. Get a receipt for every payment."],["Visit, in person or virtually","See the site yourself or through a trusted person, and use virtual tours where offered. Track construction progress against the schedule in your contract."],["Handover and title","At completion, confirm the unit matches the contract and that the title transfer is done in your name."]];
+  var faq = [["Does RealEstate EthioAmerica sell property?","No. We are a publisher. We sell advertising space, never property, and we take no commission on any sale."],["Are the developers in the magazine verified?","No. We ask advertisers for certain documents before we accept an ad, but we do not independently verify them or their claims. Always do your own checks with an attorney."],["Can I buy from the US?","Many diaspora buyers do. The details depend on your situation, the developer and the bank. Get legal advice for your case."]];
+  return head("Realestate Ethiopia & Resource","How buying from the US works","Seven steps diaspora buyers often follow when buying in Ethiopia. General information only; every situation is different.")+
+  '<section class="block"><div class="wrap split"><div><ol class="steps">'+steps.map(function(s){return '<li><div><h3>'+esc(s[0])+'</h3><p>'+esc(s[1])+'</p></div></li>';}).join("")+'</ol></div>'+
+  '<div><h2 style="font-size:36px;margin-bottom:12px">Questions readers ask</h2>'+faq.map(function(f){return '<details style="border-top:1px solid var(--rule);padding:14px 0"><summary style="font-weight:700;cursor:pointer">'+esc(f[0])+'</summary><p style="margin-top:8px" class="small">'+esc(f[1])+'</p></details>';}).join("")+eduDisc()+
+  '<p style="margin-top:18px"><a class="btn sm" href="#partners-law">Attorneys in Issue 01</a> <a class="btn ghost sm" href="#partners-banking">Banks</a></p></div></div></section>';
+};
+var mPage = 1;
+V.magazine = function(){
+  var toc = (MAG.toc||[]).map(function(x){return [x.is_heading?"h":"", x.text];});
+  var N = (MAG.pages||[]).length; var th = ""; for(var i=1;i<=N;i++){ th += '<button type="button" data-pg="'+i+'" aria-label="Page '+i+'" aria-current="'+(i===mPage)+'"><img loading="lazy" src="'+pageImg(i)+'" alt=""></button>'; }
+  var links = (MAG.flipbook_url?'<a class="btn sm" href="'+esc(MAG.flipbook_url)+'">Open the flipbook</a> ':'')+(MAG.pdf?'<a class="btn ghost sm" href="'+esc(MAG.pdf)+'">Download PDF</a>':'');
+  return head("Realestate Ethiopia & Resource",MAG.title||"Magazine",MAG.intro||"")+(links?'<div class="wrap" style="padding-top:18px">'+links+'</div>':'')+
+  '<div class="wrap viewer"><div class="stage"><img id="m-img" src="'+pageImg(mPage)+'" alt="Page '+mPage+'">'+
+  '<div class="ctl"><button class="btn sm" type="button" id="m-prev">Previous</button><span id="m-num">'+mPage+' / '+N+'</span><button class="btn sm" type="button" id="m-next">Next</button></div>'+
+  '<p class="small muted">Advertising pages carry the advertiser\'s own claims. See the <a href="#disclaimer">disclaimer</a>.</p></div>'+
+  '<aside><div class="kicker">Table of contents</div><ul class="toc">'+toc.map(function(x){return '<li class="'+x[0]+'">'+esc(x[1])+'</li>';}).join("")+'</ul>'+
+  '<div class="thumbs" role="group" aria-label="Pages">'+th+'</div>'+
+  '<div class="hr"></div><h3 style="font-size:24px">Request a printed copy</h3><p class="small muted">Copies are free at Ethiopian restaurants, groceries, cafés and community centers in the DMV.</p>'+
+  form("print",'<label for="pc-n">Copies<select id="pc-n"><option>1</option><option>2–5</option><option>For my business or venue</option></select></label>').replace("the magazine team will pass my message to the advertiser named above","my request goes to the magazine team")+
+  '</aside></div>';
+};
+V.advertise = function(){
+  var pk = (SITE.packages||[]).map(function(x){return [x.name, !!x.highlight, x.items||[], x.price||""];});
+  return head("Realestate Ethiopia & Resource","Advertise in RealEstate EthioAmerica","Put your projects or services in front of Ethiopian diaspora households in the DMV, in print and online. Advertising is by invitation, and every advertiser is selected against our listing standards.")+
+  '<section class="block"><div class="wrap"><div class="sec-head">'+kick("For developers")+'<h2>Packages, not ad sizes</h2><p class="sub">Flat advertising fees. We never charge commissions, referral fees or per-lead fees on any property sale.</p></div>'+
+  '<div class="grid g3">'+pk.map(function(p){return '<div class="pk'+(p[1]?' hl':'')+'"><div class="price">'+esc(p[3])+'</div><h3>'+esc(p[0])+'</h3><ul>'+p[2].map(function(x){return "<li>"+esc(x)+"</li>";}).join("")+'</ul></div>';}).join("")+'</div>'+
+  '<div class="grid g3" style="margin-top:22px"><div class="pk"><h3>Marketing production</h3><p class="small">Photography, video and design for your diaspora campaigns.</p></div><div class="pk"><h3>Business partners</h3><p class="small">Banks, attorneys, contractors, furniture and design studios, insurance, movers and US agents: half- or quarter-page ad plus an online listing.</p></div><div class="pk"><h3>Who reads it</h3><p class="small">Ethiopian diaspora households, 30–55, DMV first. Print copies at community venues and events; the digital edition shared on Telegram, WhatsApp and social media.</p></div></div>'+
+  '</div></section>'+
+  '<section class="block"><div class="wrap split"><div><h2 style="font-size:38px">Apply to advertise</h2><p style="margin-top:10px">Tell us about your company. If it looks like a fit, we will send the rate card and the documents we ask for under our <a href="#standards">listing standards</a>.</p>'+
+  form("apply",'<div class="row"><label for="ap-co">Company<input id="ap-co"></label><label for="ap-t">Type<select id="ap-t"><option>Developer</option><option>Bank or lender</option><option>Attorney</option><option>Contractor</option><option>Furniture or interior design</option><option>Insurance</option><option>US real estate agent</option><option>Other</option></select></label></div>').replace("the magazine team will pass my message to the advertiser named above","my application goes to the magazine team")+
+  '</div><div><img src="'+esc(SITE.advertise_image||"")+'" alt="" loading="lazy"></div></div></section>';
+};
+V.standards = function(){
+  var docs = ["Business license and registration","Land title (karta) or lease for the advertised project","Building permit for the advertised project","At least one completed project","Two buyer references, ideally diaspora buyers","A written payment schedule and a sample contract"];
+  return head("Realestate Ethiopia & Resource","Our listing standards","Advertising is by invitation. Before we accept a developer's ad, we ask them to provide the documents below.")+
+  '<section class="block"><div class="wrap split"><div><ol class="steps">'+docs.map(function(d){return '<li><div><h3>'+esc(d)+'</h3></div></li>';}).join("")+'</ol></div>'+
+  '<div class="prose"><h2 style="font-size:34px">What "selected" means, and what it does not</h2><p style="margin-top:12px">"Selected advertiser" means the company provided the documents we ask for and agreed to our advertising terms.</p><p>It does not mean we have independently verified those documents, inspected any project, or checked any claim in an ad. It is not an endorsement, a recommendation, or a guarantee of title, permits, price, payment plan, delivery date or return.</p><p>Before you pay anything, ask the developer for the documents yourself and have an attorney who works for you review them.</p>'+
+  '<div class="notice"><strong>Our role</strong>RealEstate EthioAmerica is a publisher. We are not a broker or agent, we are not a party to any transaction, and we take no commission on any sale.</div></div></div></section>';
+};
+V.disclaimer = function(){
+  return head("Policies","Disclaimer","")+
+  '<section class="block"><div class="wrap prose">'+paras(SITE.disclaimer_full).map(function(p){return "<p>"+esc(p)+"</p>";}).join("")+'<p lang="am" style="font-family:var(--ethi)">'+esc(SITE.disclaimer_short_am||"")+'</p>'+'<div class="notice"><strong>Draft</strong>Privacy Policy and Terms of Use will be added after attorney review. This disclaimer wording is also pending attorney approval.</div></div></section>';
+};
+V._unused = function(){ return '<p>RealEstate EthioAmerica is an advertising and information publication. All developer, business and agent content is paid advertising supplied by the advertiser. Inclusion in the magazine or on this website is not an endorsement, recommendation, certification or guarantee of any company, project, title, permit, price, payment plan, delivery date or return.</p><p>We are not a party to any transaction, do not receive commissions on property sales, and do not provide brokerage, legal, tax or financial services. Articles are general information only and may not reflect current laws, rates or rules; confirm everything directly with the relevant bank, developer, government office or a licensed professional. Readers are solely responsible for their own decisions.</p><p>US real estate agents advertise independently under their own brokerage and licenses. RealEstate EthioAmerica does not represent buyers or sellers. Equal Housing Opportunity.</p>'+
+  '<p lang="am" style="font-family:var(--ethi)">ማስታወቂያ። ሪል እስቴት ኢትዮአሜሪካ አሳታሚ ነው፤ የሪል እስቴት ደላላ ወይም ወኪል አይደለም። ማንኛውንም ንብረት፣ ፕሮጀክት፣ ምርት ወይም አገልግሎት አንሸጥም፣ አናደላልም፣ አንደግፍም ወይም ዋስትና አንሰጥም፤ የአስተዋዋቂዎችን መግለጫዎችም በራሳችን አላረጋገጥንም።</p>'+
+  '<div class="notice"><strong>Draft</strong>Privacy Policy and Terms of Use will be added after attorney review. This disclaimer wording is also pending attorney approval.</div></div></section>';
+};
+V.about = function(){
+  return head("Realestate Ethiopia & America","About the magazine","A place for ideas, connections and the stories that bring us closer to the communities we call home. Our focus begins with Washington, DC, Maryland and Virginia, and our conversation reaches beyond borders.")+
+  '<section class="block"><div class="wrap split"><div class="prose"><p>RealEstate EthioAmerica is a print and digital magazine connecting the Ethiopian diaspora with developers building in Addis Ababa and the businesses that help along the way: banks, attorneys, architects, insurance and agents in the DMV.</p><p>We publish news, guides and paid advertising. We do not sell or broker property.</p></div>'+
+  '<div class="grid" style="grid-template-columns:1fr 1fr">'+(SITE.publishers||[]).map(function(x){return '<div class="card"><h3>'+esc(x.name)+'</h3><div class="meta">'+esc(x.role)+'</div></div>';}).join("")+'</div></div></section>';
+};
+V.contact = function(){
+  return head("Realestate Ethiopia & Resource","Contact the magazine","Questions about advertising, distribution, or a story idea. For questions about a property or service, contact the advertiser directly from their profile.")+
+  '<section class="block"><div class="wrap split"><div>'+form("contact","").replace("the magazine team will pass my message to the advertiser named above","my message goes to the magazine team")+'</div>'+
+  '<div class="prose"><h3 style="font-size:26px">Channels</h3>'+channels()+'</div></div></section>';
+};
+
+function channels(){
+  var c = SITE.contact||{}, rows=[];
+  if(c.email) rows.push(["Email",esc(c.email),"mailto:"+c.email]);
+  if(c.ads_email) rows.push(["Advertising",esc(c.ads_email),"mailto:"+c.ads_email]);
+  if(c.phone) rows.push(["Phone",esc(c.phone),"tel:"+c.phone.replace(/[^+\d]/g,"")]);
+  if(c.whatsapp_link) rows.push(["WhatsApp","Join our channel",c.whatsapp_link]);
+  if(c.telegram_link) rows.push(["Telegram","Join our channel",c.telegram_link]);
+  if(c.facebook) rows.push(["Facebook","Follow",c.facebook]);
+  if(c.instagram) rows.push(["Instagram","Follow",c.instagram]);
+  if(c.tiktok) rows.push(["TikTok","Follow",c.tiktok]);
+  if(!rows.length) return '<div class="empty" style="margin-top:14px">Email, phone, WhatsApp, Telegram and social links will appear here once they are added in the admin panel.</div>';
+  return '<ul class="facts">'+rows.map(function(r){return '<li><span>'+r[0]+'</span><span><a href="'+esc(r[2])+'">'+r[1]+'</a></span></li>';}).join("")+'</ul>';
+}
+/* ---------- router ---------- */
+var NAV = ["home","news","developers","partners","dmv","market","how","magazine","advertise","contact"];
+function renderNav(active){
+  var n = t("nav");
+  document.getElementById("nav").innerHTML = NAV.map(function(k){return '<a href="#'+k+'"'+(k===active?' aria-current="page"':'')+'>'+esc(n[k])+'</a>';}).join("");
+}
+function route(){
+  var h = (location.hash||"#home").slice(1) || "home";
+  var html, active = h;
+  if(V[h]) html = V[h]();
+  else if(h.indexOf("partners-")===0){ html = V.partners(); active="partners"; }
+  else if(h.indexOf("adv-")===0){ var a = ADS.filter(function(x){return x.id===h.slice(4);})[0]; html = a? profile(a) : V.home(); active = a? (a.group==="developers"?"developers":(a.group==="agents"?"dmv":"partners")) : "home"; }
+  else if(h.indexOf("story-")===0){ var s = STORIES.filter(function(x){return "story-"+x.id===h;})[0]; html = s? story(s) : V.news(); active="news"; }
+  else { html = V.home(); active="home"; }
+  var view = document.getElementById("view");
+  view.innerHTML = html;
+  renderNav(active);
+  document.getElementById("nav").classList.remove("open");
+  document.getElementById("menu-btn").setAttribute("aria-expanded","false");
+  if(h.indexOf("partners-")===0){ var el = document.getElementById("sec-"+h.slice(9)); if(el) el.scrollIntoView(); else window.scrollTo(0,0); }
+  else window.scrollTo(0,0);
+  if(h==="developers") drawDevs();
+  if(h==="magazine") bindMag();
+}
+function bindMag(){
+  function show(p){ var N=(MAG.pages||[]).length; mPage = Math.max(1,Math.min(N,p)); var im=document.getElementById("m-img"); im.src=pageImg(mPage); im.alt="Page "+mPage; document.getElementById("m-num").textContent=mPage+" / "+N; [].forEach.call(document.querySelectorAll(".thumbs button"),function(b){b.setAttribute("aria-current", String(+b.getAttribute("data-pg")===mPage));}); }
+  document.getElementById("m-prev").onclick=function(){show(mPage-1);};
+  document.getElementById("m-next").onclick=function(){show(mPage+1);};
+  [].forEach.call(document.querySelectorAll(".thumbs button"),function(b){b.onclick=function(){show(+b.getAttribute("data-pg"));};});
+}
+document.addEventListener("click",function(e){
+  var b = e.target.closest && e.target.closest(".pill-filter button[data-f]");
+  if(b){ devFilter = b.getAttribute("data-f"); [].forEach.call(b.parentNode.children,function(x){x.setAttribute("aria-pressed",String(x===b));}); drawDevs(); }
+});
+document.addEventListener("input",function(e){ if(e.target && e.target.id==="dev-q") drawDevs(); });
+function postForm(name, data){
+  var body = new URLSearchParams(Object.assign({"form-name":name}, data)).toString();
+  return fetch("/", {method:"POST", headers:{"Content-Type":"application/x-www-form-urlencoded"}, body:body}).then(function(r){ if(!r.ok) throw new Error("send failed"); });
+}
+document.addEventListener("submit",function(e){
+  var f = e.target;
+  e.preventDefault();
+  if(f.id==="join-form"){
+    var v=document.getElementById("join-email").value, msg=document.getElementById("join-msg");
+    if(!/\S+@\S+\.\S+/.test(v)){ msg.textContent="Enter an email address like name@example.com."; return; }
+    if(!SITE.forms_enabled){ msg.textContent="Preview only: signups are not connected yet, so you were not added."; return; }
+    msg.textContent="Sending…";
+    postForm("newsletter",{email:v}).then(function(){ msg.textContent="Thank you. You're on the list."; f.reset(); }).catch(function(){ msg.textContent="That didn't go through. Check your connection and try again."; });
+    return;
+  }
+  if(f.classList.contains("f")){
+    var d=f.querySelector(".done");
+    var ok = true; [].forEach.call(f.querySelectorAll("[required]"),function(i){ if((i.type==="checkbox"&&!i.checked)||(!i.value&&i.type!=="checkbox")) ok=false; });
+    if(!ok){ d.textContent="Please add your name and email, and tick the box to confirm you understand our role."; f.classList.add("sent"); return; }
+    if(!SITE.forms_enabled){ d.textContent="Preview only: this form is not connected yet, so nothing was sent."; f.classList.add("sent"); return; }
+    var kind = f.getAttribute("data-kind"), name = kind.indexOf("inq-")===0 ? "inquiry" : (kind==="print" ? "print-copy" : kind);
+    var get = function(n){ var el=f.querySelector('[name="'+n+'"]'); return el?el.value:""; };
+    var details = [].map.call(f.querySelectorAll("select, input:not([name]):not([type=checkbox])"),function(el){ var lab = el.closest("label"); return (lab? lab.firstChild.textContent.trim()+": " : "")+el.value; }).join(" | ");
+    var data = {name:get("name"), phone:get("phone"), email:get("email"), location:get("loc"), message:get("msg"), details:details};
+    if(name==="inquiry"){ var a = ADS.filter(function(x){return "inq-"+x.id===kind;})[0]; data.advertiser = a? a.name : kind; }
+    d.textContent="Sending…"; f.classList.add("sent");
+    postForm(name,data).then(function(){ d.textContent="Thank you. Your message was sent to the magazine team, who will pass it to the right person."; f.reset(); }).catch(function(){ d.textContent="That didn't go through. Check your connection and try again."; });
+  }
+});
+function applyLang(){
+  document.documentElement.lang = LANG;
+  document.getElementById("lang-en").setAttribute("aria-pressed",String(LANG==="en"));
+  document.getElementById("lang-am").setAttribute("aria-pressed",String(LANG==="am"));
+  document.getElementById("preview").innerHTML = t("preview");
+  [].forEach.call(document.querySelectorAll("[data-t]"),function(el){ var v=t(el.getAttribute("data-t")); if(typeof v==="string") el.textContent=v; });
+  try{ localStorage.setItem("rea-lang",LANG);}catch(e){}
+}
+document.getElementById("lang-en").onclick=function(){LANG="en";applyLang();route();};
+document.getElementById("lang-am").onclick=function(){LANG="am";applyLang();route();};
+document.getElementById("menu-btn").onclick=function(){ var n=document.getElementById("nav"); var o=n.classList.toggle("open"); this.setAttribute("aria-expanded",String(o)); };
+window.addEventListener("hashchange",route);
+function fillFooter(){
+  var d = document.querySelectorAll("footer .disc");
+  if(d[0] && SITE.disclaimer_short_en) d[0].innerHTML = "<strong>Advertisement.</strong> "+esc(SITE.disclaimer_short_en.replace(/^Advertisement\.\s*/,""));
+  if(d[1] && SITE.disclaimer_short_am) d[1].textContent = SITE.disclaimer_short_am;
+  if(!SITE.show_preview_banner) document.getElementById("preview").style.display="none";
+  var c = SITE.contact||{}, tg=document.querySelectorAll(".join .ch a");
+  if(tg[0] && c.telegram_link) tg[0].href=c.telegram_link;
+  if(tg[1] && c.whatsapp_link) tg[1].href=c.whatsapp_link;
+}
+function load(f){ return fetch("content/"+f+".json",{cache:"no-cache"}).then(function(r){ if(!r.ok) throw new Error(f); return r.json(); }); }
+Promise.all([load("site"),load("advertisers"),load("news"),load("magazine")]).then(function(r){
+  SITE = r[0]||{};
+  var today = new Date().toISOString().slice(0,10);
+  ADS = (r[1].advertisers||[]).filter(function(a){ return a.published!==false && (!a.expires || a.expires>=today); });
+  STORIES = (r[2].stories||[]).filter(function(s){return s.published!==false;});
+  SOON = r[2].coming_soon||[];
+  MAG = r[3].current||{};
+  applyLang(); fillFooter(); route();
+}).catch(function(e){
+  document.getElementById("view").innerHTML = '<div class="wrap page-head"><h1>We could not load this page</h1><p>The site content did not load ('+esc(e.message)+'). Refresh the page; if it keeps happening, check the files in the content folder.</p></div>';
+});
+})();
+</script>
+</body>
+</html>

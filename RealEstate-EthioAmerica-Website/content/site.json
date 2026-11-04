@@ -1,0 +1,75 @@
+{
+  "magazine_name": "RealEstate EthioAmerica",
+  "forms_enabled": false,
+  "show_preview_banner": true,
+  "preview_banner_en": "<b>Preview build</b> · sample content from Issue 01 · forms are not connected yet",
+  "preview_banner_am": "<b>ቅድመ እይታ</b> · ከቁጥር 01 የተወሰደ ናሙና ይዘት · ቅጾቹ ገና አልተገናኙም",
+  "hero": {
+    "image": "img/house.jpg",
+    "issue_label_en": "Issue 01 · January 2027",
+    "issue_label_am": "ቁጥር 01 · ጥር 2027",
+    "headline_en": "New <i>in Addis</i>",
+    "headline_am": "በአዲስ አበባ አዲስ ምን አለ",
+    "intro_en": "A real estate magazine for the Ethiopian diaspora: advertisers building in Addis Ababa and serving the DMV, plus the news that matters before you buy.",
+    "intro_am": "ለኢትዮጵያ ዳያስፖራ የተዘጋጀ የሪል እስቴት መጽሔት፦ በአዲስ አበባ የሚገነቡና በዲሲ አካባቢ የሚያገለግሉ አስተዋዋቂዎች፣ እንዲሁም ከመግዛትዎ በፊት ሊያውቋቸው የሚገቡ ዜናዎች።",
+    "strip_en": "Travel and Lifestyle: Diaspora",
+    "strip_am": "ጉዞና አኗኗር፦ ዳያስፖራ"
+  },
+  "band_image": "img/addis.jpg",
+  "advertise_image": "img/family.jpg",
+  "disclaimer_short_en": "Advertisement. RealEstate EthioAmerica is a publisher, not a real estate broker or agent. We do not sell, broker, endorse or guarantee any property, project, product or service, and we have not independently verified advertisers' claims. Do your own due diligence and consult a licensed attorney before any purchase.",
+  "disclaimer_short_am": "ማስታወቂያ። ሪል እስቴት ኢትዮአሜሪካ አሳታሚ ነው፤ የሪል እስቴት ደላላ ወይም ወኪል አይደለም። ማንኛውንም ንብረት፣ ፕሮጀክት፣ ምርት ወይም አገልግሎት አንሸጥም፣ አናደላልም፣ አንደግፍም ወይም ዋስትና አንሰጥም፤ የአስተዋዋቂዎችን መግለጫዎችም በራሳችን አላረጋገጥንም። ማንኛውንም ግዢ ከመፈጸምዎ በፊት የራስዎን ማጣራት ያድርጉ፣ ፈቃድ ያለው ጠበቃም ያማክሩ።",
+  "disclaimer_full": "RealEstate EthioAmerica is an advertising and information publication. All developer, business and agent content is paid advertising supplied by the advertiser. Inclusion in the magazine or on this website is not an endorsement, recommendation, certification or guarantee of any company, project, title, permit, price, payment plan, delivery date or return.\n\nWe are not a party to any transaction, do not receive commissions on property sales, and do not provide brokerage, legal, tax or financial services. Articles are general information only and may not reflect current laws, rates or rules; confirm everything directly with the relevant bank, developer, government office or a licensed professional. Readers are solely responsible for their own decisions.\n\nUS real estate agents advertise independently under their own brokerage and licenses. RealEstate EthioAmerica does not represent buyers or sellers. Equal Housing Opportunity.",
+  "contact": {
+    "email": "",
+    "ads_email": "",
+    "phone": "",
+    "whatsapp_link": "",
+    "telegram_link": "",
+    "facebook": "",
+    "instagram": "",
+    "tiktok": ""
+  },
+  "publishers": [
+    {
+      "name": "Binyam Ezra",
+      "role": "Publisher"
+    },
+    {
+      "name": "Beakal Woldeselassie",
+      "role": "Publisher · Creative and marketing"
+    }
+  ],
+  "packages": [
+    {
+      "name": "Feature",
+      "highlight": true,
+      "price": "Ask for the rate card",
+      "items": [
+        "Cover or 2-page project spread",
+        "Featured developer profile online",
+        "Social campaign across Telegram, WhatsApp, Facebook, Instagram and TikTok",
+        "Booth or presentation slot at the launch gathering"
+      ]
+    },
+    {
+      "name": "Standard",
+      "highlight": false,
+      "price": "Ask for the rate card",
+      "items": [
+        "Full-page ad",
+        "Developer profile online",
+        "Social posts with each issue"
+      ]
+    },
+    {
+      "name": "Listing",
+      "highlight": false,
+      "price": "Ask for the rate card",
+      "items": [
+        "Developer card and profile online",
+        "Included in search and area pages"
+      ]
+    }
+  ]
+}

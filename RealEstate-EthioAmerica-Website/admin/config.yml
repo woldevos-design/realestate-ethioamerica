@@ -1,0 +1,223 @@
+# RealEstate EthioAmerica · admin panel settings (Decap CMS)
+# Editors log in at https://YOUR-SITE/admin/ with the email invite sent from Netlify Identity.
+
+backend:
+  name: git-gateway
+  branch: main
+
+# Every change is saved as a draft first, then published (Workflow tab in the admin).
+publish_mode: editorial_workflow
+
+media_folder: "img/uploads"
+public_folder: "img/uploads"
+
+site_url: "/"
+display_url: "/"
+logo_url: "/img/p-01.jpg"
+
+collections:
+
+  # ---------------------------------------------------------------
+  - name: "advertisers"
+    label: "Advertisers"
+    description: "Developers, business partners and agents. Wording rule: never write verified, vetted, guaranteed, trusted, certified, approved, risk-free or safe investment, and never suggest we sell or broker property."
+    format: "json"
+    editor: { preview: false }
+    files:
+      - name: "advertisers"
+        label: "All advertisers"
+        file: "content/advertisers.json"
+        fields:
+          - label: "Advertisers"
+            name: "advertisers"
+            widget: "list"
+            summary: "{{fields.name}} · {{fields.type}}"
+            fields:
+              - { label: "Page address (short, lowercase, no spaces, e.g. noah)", name: "id", widget: "string", pattern: ["^[a-z0-9-]+$", "Use lowercase letters, numbers and hyphens only"] }
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Show on website", name: "published", widget: "boolean", default: true }
+              - { label: "Featured on home page (developers only)", name: "featured", widget: "boolean", default: false }
+              - { label: "Ad package ends on (hidden automatically after this date)", name: "expires", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: false }
+              - { label: "Type (shown on card, e.g. Developer, Bank, Attorneys)", name: "type", widget: "string" }
+              - label: "Section"
+                name: "group"
+                widget: "select"
+                options:
+                  - { label: "Developers", value: "developers" }
+                  - { label: "Banks and lenders", value: "banking" }
+                  - { label: "Attorneys", value: "law" }
+                  - { label: "Architects and engineers", value: "architecture" }
+                  - { label: "Insurance", value: "insurance" }
+                  - { label: "Contractors", value: "contractors" }
+                  - { label: "Furniture and interior design", value: "furniture" }
+                  - { label: "US real estate agents", value: "agents" }
+              - { label: "Section label (e.g. Real Estate Ethiopia & Law)", name: "kicker", widget: "string", required: false }
+              - { label: "Country", name: "country", widget: "select", options: ["Ethiopia", "US"] }
+              - { label: "One-line tagline", name: "tagline", widget: "string", hint: "Use the advertiser's own words. No promises or guarantees." }
+              - { label: "About (in the advertiser's words)", name: "about", widget: "text" }
+              - label: "Ad images (first one is used on the card)"
+                name: "ad_images"
+                widget: "list"
+                field: { label: "Image", name: "image", widget: "image", choose_url: false }
+              - label: "Key facts (as stated in the ad; add 'per ad' to numbers)"
+                name: "facts"
+                widget: "list"
+                summary: "{{fields.label}}: {{fields.value}}"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Value", name: "value", widget: "string" }
+              - label: "Areas named (Addis Ababa neighborhoods)"
+                name: "areas"
+                widget: "list"
+                required: false
+              - label: "Contact details"
+                name: "contact"
+                widget: "object"
+                fields:
+                  - { label: "Phone", name: "phone", widget: "string", required: false }
+                  - { label: "WhatsApp number (digits with country code, e.g. 251942654444)", name: "whatsapp", widget: "string", required: false }
+                  - { label: "Email", name: "email", widget: "string", required: false }
+                  - { label: "Website (without https://)", name: "website", widget: "string", required: false }
+                  - { label: "Note (e.g. Sales contact printed in the ad)", name: "note", widget: "string", required: false }
+
+  # ---------------------------------------------------------------
+  - name: "news"
+    label: "News"
+    description: "Stories for the News page and the Coming Soon list. Mark paid stories as Sponsored."
+    format: "json"
+    editor: { preview: false }
+    files:
+      - name: "news"
+        label: "News and Coming Soon"
+        file: "content/news.json"
+        fields:
+          - label: "Stories (newest first)"
+            name: "stories"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Page address (short, lowercase, e.g. cbe-loan)", name: "id", widget: "string", pattern: ["^[a-z0-9-]+$", "Use lowercase letters, numbers and hyphens only"] }
+              - { label: "Headline", name: "title", widget: "string" }
+              - { label: "Show on website", name: "published", widget: "boolean", default: true }
+              - { label: "Sponsored (paid) story", name: "sponsored", widget: "boolean", default: false }
+              - { label: "Category", name: "category", widget: "select", options: ["Market News", "Upcoming Projects", "Policy & Law", "Events", "Guides", "Success Stories"] }
+              - { label: "Stream", name: "stream", widget: "select", options: ["Now", "Coming Soon"], default: "Now" }
+              - { label: "Date label (e.g. Issue 02 · April 2027)", name: "date_label", widget: "string" }
+              - { label: "Author", name: "author", widget: "string" }
+              - { label: "Short summary", name: "summary", widget: "string" }
+              - { label: "Story text (leave a blank line between paragraphs)", name: "body", widget: "text" }
+          - label: "Coming Soon items"
+            name: "coming_soon"
+            widget: "list"
+            summary: "{{fields.text}}"
+            fields:
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Label (e.g. Advertiser-provided, Event, Magazine)", name: "label", widget: "string" }
+              - { label: "Link (e.g. #adv-noah or #advertise)", name: "link", widget: "string", required: false }
+
+  # ---------------------------------------------------------------
+  - name: "magazine"
+    label: "Magazine issue"
+    description: "The current issue shown on the Magazine page. Each quarter: upload the new page images, update the title, table of contents, flipbook link and PDF."
+    format: "json"
+    editor: { preview: false }
+    files:
+      - name: "magazine"
+        label: "Current issue"
+        file: "content/magazine.json"
+        fields:
+          - label: "Current issue"
+            name: "current"
+            widget: "object"
+            fields:
+              - { label: "Title (e.g. Issue 02 · April 2027)", name: "title", widget: "string" }
+              - { label: "Intro line", name: "intro", widget: "string" }
+              - { label: "Flipsnack flipbook link", name: "flipbook_url", widget: "string", required: false }
+              - { label: "PDF of the issue", name: "pdf", widget: "file", required: false, choose_url: false }
+              - { label: "Cover image", name: "cover", widget: "image", choose_url: false }
+              - label: "Pages (in order)"
+                name: "pages"
+                widget: "list"
+                summary: "{{fields.image}}"
+                fields:
+                  - { label: "Page image", name: "image", widget: "image", choose_url: false }
+              - label: "Table of contents"
+                name: "toc"
+                widget: "list"
+                summary: "{{fields.text}}"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "Section heading", name: "is_heading", widget: "boolean", default: false }
+          - label: "Past issues"
+            name: "archive"
+            widget: "list"
+            required: false
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Cover image", name: "cover", widget: "image", choose_url: false }
+              - { label: "Flipbook link", name: "flipbook_url", widget: "string", required: false }
+              - { label: "PDF", name: "pdf", widget: "file", required: false, choose_url: false }
+
+  # ---------------------------------------------------------------
+  - name: "settings"
+    label: "Site settings"
+    description: "Home page cover, disclaimers, contact channels, publishers and ad packages."
+    format: "json"
+    editor: { preview: false }
+    files:
+      - name: "site"
+        label: "Site settings"
+        file: "content/site.json"
+        fields:
+          - { label: "Magazine name", name: "magazine_name", widget: "string" }
+          - { label: "Turn on website forms (only after the site is live on Netlify)", name: "forms_enabled", widget: "boolean", default: false }
+          - { label: "Show the preview banner at the top", name: "show_preview_banner", widget: "boolean", default: true }
+          - { label: "Preview banner (English)", name: "preview_banner_en", widget: "string", required: false }
+          - { label: "Preview banner (Amharic)", name: "preview_banner_am", widget: "string", required: false }
+          - label: "Home page cover"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Cover photo", name: "image", widget: "image", choose_url: false }
+              - { label: "Issue label (English)", name: "issue_label_en", widget: "string" }
+              - { label: "Issue label (Amharic)", name: "issue_label_am", widget: "string" }
+              - { label: "Headline (English; <i>text</i> makes it italic)", name: "headline_en", widget: "string" }
+              - { label: "Headline (Amharic)", name: "headline_am", widget: "string" }
+              - { label: "Intro (English)", name: "intro_en", widget: "text" }
+              - { label: "Intro (Amharic)", name: "intro_am", widget: "text" }
+              - { label: "Yellow strip text (English)", name: "strip_en", widget: "string" }
+              - { label: "Yellow strip text (Amharic)", name: "strip_am", widget: "string" }
+          - { label: "Wide photo band on home page", name: "band_image", widget: "image", choose_url: false }
+          - { label: "Photo on the Advertise page", name: "advertise_image", widget: "image", choose_url: false }
+          - { label: "Short disclaimer (English) · attorney-approved wording only", name: "disclaimer_short_en", widget: "text" }
+          - { label: "Short disclaimer (Amharic) · attorney-approved wording only", name: "disclaimer_short_am", widget: "text" }
+          - { label: "Full disclaimer (blank line between paragraphs)", name: "disclaimer_full", widget: "text" }
+          - label: "Contact channels (leave blank to hide)"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Main email", name: "email", widget: "string", required: false }
+              - { label: "Advertising email", name: "ads_email", widget: "string", required: false }
+              - { label: "Phone", name: "phone", widget: "string", required: false }
+              - { label: "WhatsApp channel link", name: "whatsapp_link", widget: "string", required: false }
+              - { label: "Telegram channel link", name: "telegram_link", widget: "string", required: false }
+              - { label: "Facebook link", name: "facebook", widget: "string", required: false }
+              - { label: "Instagram link", name: "instagram", widget: "string", required: false }
+              - { label: "TikTok link", name: "tiktok", widget: "string", required: false }
+          - label: "Publishers"
+            name: "publishers"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Name", name: "name", widget: "string" }
+              - { label: "Role", name: "role", widget: "string" }
+          - label: "Ad packages (Advertise page)"
+            name: "packages"
+            widget: "list"
+            summary: "{{fields.name}}"
+            fields:
+              - { label: "Package name", name: "name", widget: "string" }
+              - { label: "Highlight in yellow", name: "highlight", widget: "boolean", default: false }
+              - { label: "Price line (e.g. Ask for the rate card, or $1,200 per issue)", name: "price", widget: "string" }
+              - { label: "What is included", name: "items", widget: "list" }

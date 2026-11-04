@@ -1,0 +1,67 @@
+{
+  "stories": [
+    {
+      "id": "banks",
+      "title": "Ethiopia opens its banking sector to foreign banks. What could it mean for diaspora homebuyers?",
+      "category": "Policy & Law",
+      "stream": "Now",
+      "date_label": "Issue 01 · January 2027",
+      "author": "Maya Bennett",
+      "summary": "A 2024 law created a path for foreign banks. It does not mean they can all open tomorrow.",
+      "body": "Ethiopia's Banking Business Proclamation, approved in December 2024, created a legal framework for foreign banks to set up a presence in Ethiopia or to invest in Ethiopian banks, subject to regulatory requirements.\n\nThat is a pathway toward more competition and a more internationally connected financial sector. It is not a sign that every foreign bank can begin operating right away.\n\nFor diaspora buyers, the practical questions today are still the same: which Ethiopian banks offer diaspora mortgages, what they require, and in which currency repayment is due. Our mortgage explainer covers what three banks advertise.",
+      "sponsored": false,
+      "published": true
+    },
+    {
+      "id": "mortgage",
+      "title": "Diaspora mortgages: what three banks advertise, and what to ask before you apply",
+      "category": "Guides",
+      "stream": "Now",
+      "date_label": "Issue 01 · January 2027",
+      "author": "Maya Bennett",
+      "summary": "Starting terms are a place to begin a conversation, not an offer.",
+      "body": "Several Ethiopian banks offer mortgage products for Ethiopians abroad and foreign nationals of Ethiopian origin, using overseas income to assess repayment capacity. Eligibility, required savings, repayment currency and terms differ by institution.\n\nCooperative Bank of Oromia advertises diaspora home loans with repayment periods of up to 20 years, an equity contribution starting at 20% and interest rates starting at 8.5% a year. Nib International Bank advertises contributions starting at 20% and repayment periods of up to 25 years, with interest depending on contribution and term. Global Bank Ethiopia states that its diaspora mortgage repayments must be made in an acceptable foreign currency such as US dollars or euros.\n\nThese are advertised starting terms, not offers for every applicant. Before you commit to a property, ask the bank for a written loan quotation and confirm eligibility, total borrowing cost, fees, collateral requirements and repayment currency.",
+      "sponsored": false,
+      "published": true
+    },
+    {
+      "id": "cbe",
+      "title": "Commercial Bank of Ethiopia announces a 50 billion birr loan package for the diaspora community",
+      "category": "Market News",
+      "stream": "Now",
+      "date_label": "Issue 01 · January 2027",
+      "author": "RealEstate EthioAmerica",
+      "summary": "Reported in Issue 01. Confirm the details with the bank before you plan around it.",
+      "body": "Issue 01 reports that the Commercial Bank of Ethiopia has launched a 50 billion birr loan package aimed at the diaspora community.\n\nEligibility, terms and how to apply from the United States should be confirmed directly with the bank. We will add details here as the bank publishes them.",
+      "sponsored": false,
+      "published": true
+    }
+  ],
+  "coming_soon": [
+    {
+      "text": "Noah Real Estate says it has 12 projects under development across Addis Ababa.",
+      "label": "Advertiser-provided",
+      "link": "#adv-noah"
+    },
+    {
+      "text": "Temer Properties is offering new apartments and commercial spaces at sites including Sarbet, Ayat and Piyassa.",
+      "label": "Advertiser-provided",
+      "link": "#adv-temer"
+    },
+    {
+      "text": "Dema Hope Real Estate lists projects in Bole Downtown, Bole Adey Abeba, Bole Central Shola and Mountain View.",
+      "label": "Advertiser-provided",
+      "link": "#adv-dema-hope"
+    },
+    {
+      "text": "Launch gathering for Issue 01 in the DMV. Date and venue to be announced.",
+      "label": "Event",
+      "link": "#contact"
+    },
+    {
+      "text": "Issue 02: advertiser applications are open.",
+      "label": "Magazine",
+      "link": "#advertise"
+    }
+  ]
+}
