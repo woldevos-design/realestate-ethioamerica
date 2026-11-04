@@ -247,6 +247,22 @@ footer h4{margin:0 0 8px;font-size:12px;letter-spacing:.2em;text-transform:upper
 .agent{display:grid;grid-template-columns:200px 1fr;gap:22px;border:1.5px solid var(--ink);padding:18px}
 @media (max-width:600px){.agent{grid-template-columns:1fr}}
 .empty{border:1.5px dashed #bdbab0;padding:18px;color:var(--muted);font-size:15px}
+
+/* visitor sign-up pop-up */
+.pop-back{position:fixed;inset:0;background:rgba(10,12,18,.62);z-index:60;display:none;align-items:center;justify-content:center;padding:16px}
+.pop-back.open{display:flex}
+.pop{background:var(--paper);color:var(--ink);width:min(760px,100%);max-height:calc(100vh - 32px);overflow:auto;display:grid;grid-template-columns:.85fr 1.15fr;box-shadow:0 24px 60px rgba(0,0,0,.35);position:relative}
+.pop .ph{background:var(--night) center/cover no-repeat;min-height:100%}
+.pop .pb{padding:26px 26px 22px;border-top:8px solid var(--yellow)}
+.pop h2{font-size:clamp(26px,3.4vw,36px);margin:8px 0 8px}
+.pop p.t{color:var(--charcoal);font-size:15.5px}
+.pop .x{position:absolute;top:8px;right:8px;width:40px;height:40px;border-radius:999px;border:0;background:var(--paper);font:700 22px/1 var(--sans);cursor:pointer;color:var(--ink)}
+.pop .x:hover{background:var(--yellow)}
+.pop .fine{font-size:12.5px;color:var(--muted);margin-top:10px}
+.pop .later{background:none;border:0;color:var(--muted);text-decoration:underline;cursor:pointer;font:14px var(--sans);padding:6px 0}
+.pop .ok{display:none;background:var(--yellow-soft);border-left:5px solid var(--yellow);padding:12px 14px;font-size:15px;margin-top:12px}
+.pop.sent .ok{display:block}
+@media (max-width:640px){.pop{grid-template-columns:1fr}.pop .ph{min-height:120px}}
 </style>
 </head>
 <body>
@@ -257,6 +273,7 @@ footer h4{margin:0 0 8px;font-size:12px;letter-spacing:.2em;text-transform:upper
 <form name="print-copy" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="name"><input name="phone"><input name="email"><input name="location"><input name="details"><textarea name="message"></textarea></form>
 <form name="contact" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="name"><input name="phone"><input name="email"><input name="location"><input name="details"><textarea name="message"></textarea></form>
 <form name="newsletter" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="email"></form>
+<form name="visitor-signup" data-netlify="true" netlify-honeypot="bot-field"><input name="bot-field"><input name="name"><input name="email"><input name="phone"><input name="interest"><input name="language"></form>
 </div>
 <script>
 /* Netlify Identity invite and password links land on the home page; send them to the admin panel. */
@@ -329,6 +346,31 @@ if(/(invite|recovery|confirmation|email_change)_token=/.test(location.hash)){ lo
   </div>
 </footer>
 
+<div class="pop-back" id="pop-back" aria-hidden="true">
+  <div class="pop" role="dialog" aria-modal="true" aria-labelledby="pop-h" id="pop">
+    <div class="ph" id="pop-ph" aria-hidden="true"></div>
+    <div class="pb">
+      <button class="x" type="button" id="pop-x" aria-label="Close">×</button>
+      <div class="kicker" id="pop-k"></div>
+      <h2 id="pop-h"></h2>
+      <p class="t" id="pop-t"></p>
+      <form class="f" id="pop-form" novalidate>
+        <label for="pop-name">Name<input id="pop-name" autocomplete="name" required></label>
+        <div class="row">
+          <label for="pop-email">Email<input id="pop-email" type="email" autocomplete="email"></label>
+          <label for="pop-phone">Phone or WhatsApp<input id="pop-phone" type="tel" autocomplete="tel"></label>
+        </div>
+        <label for="pop-int">I'm interested in<select id="pop-int">
+          <option>Buying in Ethiopia</option><option>Buying or selling in the DMV</option><option>Investing</option><option>Advertising my business</option><option>Just the magazine</option>
+        </select></label>
+        <label class="check" for="pop-ok"><input type="checkbox" id="pop-ok" required> Yes, send me RealEstate EthioAmerica updates by email or WhatsApp.</label>
+        <div><button class="btn" type="submit" id="pop-btn">Sign me up</button> <button class="later" type="button" id="pop-later">No thanks</button></div>
+        <p class="fine" id="pop-fine"></p>
+        <div class="ok" role="status" id="pop-msg"></div>
+      </form>
+    </div>
+  </div>
+</div>
 <script>
 (function(){
 "use strict";
@@ -621,6 +663,67 @@ function channels(){
   if(!rows.length) return '<div class="empty" style="margin-top:14px">Email, phone, WhatsApp, Telegram and social links will appear here once they are added in the admin panel.</div>';
   return '<ul class="facts">'+rows.map(function(r){return '<li><span>'+r[0]+'</span><span><a href="'+esc(r[2])+'">'+r[1]+'</a></span></li>';}).join("")+'</ul>';
 }
+
+/* ---------- visitor sign-up pop-up ---------- */
+var POP_KEY="rea-pop", popLast=null;
+function popText(k){ var P=SITE.popup||{}; return P[k+"_"+(LANG==="am"?"am":"en")] || P[k+"_en"] || ""; }
+function popFill(){
+  var P=SITE.popup||{};
+  document.getElementById("pop-k").textContent=popText("kicker");
+  document.getElementById("pop-h").textContent=popText("headline");
+  document.getElementById("pop-t").textContent=popText("text");
+  document.getElementById("pop-btn").textContent=popText("button")||"Sign me up";
+  document.getElementById("pop-fine").textContent=popText("fine_print");
+  document.getElementById("pop-ph").style.backgroundImage = P.image ? 'url("'+P.image.replace(/"/g,"")+'")' : "none";
+}
+function popSeenRecently(){
+  var P=SITE.popup||{}, days=Number(P.show_again_after_days);
+  if(!(days>0)) return false; /* 0 = show on every visit */
+  try{ var v=JSON.parse(localStorage.getItem(POP_KEY)||"null"); if(!v) return false; if(v.signed) return true; return (Date.now()-v.t) < days*864e5; }catch(e){ return false; }
+}
+function popRemember(signed){ try{ localStorage.setItem(POP_KEY, JSON.stringify({t:Date.now(), signed:!!signed})); }catch(e){} }
+function popOpen(){
+  var b=document.getElementById("pop-back"); if(b.classList.contains("open")) return;
+  popFill(); popLast=document.activeElement; b.classList.add("open"); b.setAttribute("aria-hidden","false");
+  setTimeout(function(){ var n=document.getElementById("pop-name"); if(n) n.focus(); }, 30);
+}
+function popClose(remember){
+  var b=document.getElementById("pop-back"); b.classList.remove("open"); b.setAttribute("aria-hidden","true");
+  if(remember!==false) popRemember(false);
+  if(popLast && popLast.focus) popLast.focus();
+}
+function popInit(){
+  var P=SITE.popup||{};
+  if(!P.enabled || popSeenRecently()) return;
+  var fired=false, fire=function(){ if(fired) return; fired=true; window.removeEventListener("scroll",onScroll); popOpen(); };
+  var onScroll=function(){ var h=document.documentElement; if((h.scrollTop+h.clientHeight)/h.scrollHeight>0.5) fire(); };
+  setTimeout(fire, Math.max(0, Number(P.delay_seconds)||8)*1000);
+  window.addEventListener("scroll", onScroll, {passive:true});
+}
+document.getElementById("pop-x").onclick=function(){ popClose(); };
+document.getElementById("pop-later").onclick=function(){ popClose(); };
+document.getElementById("pop-back").addEventListener("click",function(e){ if(e.target===this) popClose(); });
+document.addEventListener("keydown",function(e){
+  var b=document.getElementById("pop-back"); if(!b.classList.contains("open")) return;
+  if(e.key==="Escape"){ popClose(); return; }
+  if(e.key==="Tab"){ var f=b.querySelectorAll("button, input, select"); var first=f[0], last=f[f.length-1];
+    if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+    else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); } }
+});
+document.getElementById("pop-form").addEventListener("submit",function(e){
+  e.preventDefault(); e.stopPropagation();
+  var pop=document.getElementById("pop"), msg=document.getElementById("pop-msg");
+  var name=document.getElementById("pop-name").value.trim(), email=document.getElementById("pop-email").value.trim(), phone=document.getElementById("pop-phone").value.trim();
+  pop.classList.add("sent");
+  if(!name || (!email && !phone)){ msg.textContent="Please add your name and an email or phone number."; return; }
+  if(email && !/\S+@\S+\.\S+/.test(email)){ msg.textContent="Check the email address, e.g. name@example.com."; return; }
+  if(!document.getElementById("pop-ok").checked){ msg.textContent="Tick the box so we can send you updates."; return; }
+  if(!SITE.forms_enabled){ msg.textContent="Preview only: sign-ups are not connected yet, so nothing was sent."; return; }
+  msg.textContent="Sending…";
+  postForm("visitor-signup",{name:name,email:email,phone:phone,interest:document.getElementById("pop-int").value,language:LANG}).then(function(){
+    msg.textContent="Thank you! You're on the list."; popRemember(true); setTimeout(function(){ popClose(false); pop.classList.remove("sent"); }, 1800);
+  }).catch(function(){ msg.textContent="That didn't go through. Check your connection and try again."; });
+}, true);
 /* ---------- router ---------- */
 var NAV = ["home","news","developers","partners","dmv","market","how","magazine","advertise","contact"];
 function renderNav(active){
@@ -693,8 +796,8 @@ function applyLang(){
   [].forEach.call(document.querySelectorAll("[data-t]"),function(el){ var v=t(el.getAttribute("data-t")); if(typeof v==="string") el.textContent=v; });
   try{ localStorage.setItem("rea-lang",LANG);}catch(e){}
 }
-document.getElementById("lang-en").onclick=function(){LANG="en";applyLang();route();};
-document.getElementById("lang-am").onclick=function(){LANG="am";applyLang();route();};
+document.getElementById("lang-en").onclick=function(){LANG="en";applyLang();route();popFill();};
+document.getElementById("lang-am").onclick=function(){LANG="am";applyLang();route();popFill();};
 document.getElementById("menu-btn").onclick=function(){ var n=document.getElementById("nav"); var o=n.classList.toggle("open"); this.setAttribute("aria-expanded",String(o)); };
 window.addEventListener("hashchange",route);
 function fillFooter(){
@@ -714,7 +817,7 @@ Promise.all([load("site"),load("advertisers"),load("news"),load("magazine")]).th
   STORIES = (r[2].stories||[]).filter(function(s){return s.published!==false;});
   SOON = r[2].coming_soon||[];
   MAG = r[3].current||{};
-  applyLang(); fillFooter(); route();
+  applyLang(); fillFooter(); route(); popInit();
 }).catch(function(e){
   document.getElementById("view").innerHTML = '<div class="wrap page-head"><h1>We could not load this page</h1><p>The site content did not load ('+esc(e.message)+'). Refresh the page; if it keeps happening, check the files in the content folder.</p></div>';
 });

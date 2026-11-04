@@ -71,5 +71,21 @@
         "Included in search and area pages"
       ]
     }
-  ]
+  ],
+  "popup": {
+    "enabled": true,
+    "delay_seconds": 8,
+    "show_again_after_days": 30,
+    "image": "img/addis.jpg",
+    "kicker_en": "Free · Every new issue",
+    "headline_en": "Be first to see what's new in Addis",
+    "text_en": "Get each new issue, upcoming projects and diaspora events by email or WhatsApp.",
+    "button_en": "Sign me up",
+    "fine_print_en": "Unsubscribe anytime. RealEstate EthioAmerica is a publisher, not a broker or agent.",
+    "kicker_am": "በነጻ · እያንዳንዱ አዲስ እትም",
+    "headline_am": "በአዲስ አበባ አዲስ የሆነውን ቀድመው ይወቁ",
+    "text_am": "እያንዳንዱን አዲስ እትም፣ መጪ ፕሮጀክቶችንና የዳያስፖራ ዝግጅቶችን በኢሜይል ወይም በዋትስአፕ ያግኙ።",
+    "button_am": "ይመዝገቡ",
+    "fine_print_am": "በማንኛውም ጊዜ ምዝገባዎን ማቋረጥ ይችላሉ። ሪል እስቴት ኢትዮአሜሪካ አሳታሚ ነው፤ ደላላ ወይም ወኪል አይደለም።"
+  }
 }

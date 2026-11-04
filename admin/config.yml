@@ -175,6 +175,25 @@ collections:
           - { label: "Show the preview banner at the top", name: "show_preview_banner", widget: "boolean", default: true }
           - { label: "Preview banner (English)", name: "preview_banner_en", widget: "string", required: false }
           - { label: "Preview banner (Amharic)", name: "preview_banner_am", widget: "string", required: false }
+          - label: "Visitor sign-up pop-up"
+            name: "popup"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Show the pop-up", name: "enabled", widget: "boolean", default: true }
+              - { label: "Seconds before it appears (it also appears when a visitor scrolls halfway down)", name: "delay_seconds", widget: "number", value_type: "int", min: 0, default: 8 }
+              - { label: "Days before showing it again to someone who closed it (0 = every visit)", name: "show_again_after_days", widget: "number", value_type: "int", min: 0, default: 30 }
+              - { label: "Photo", name: "image", widget: "image", choose_url: false, required: false }
+              - { label: "Small label (English)", name: "kicker_en", widget: "string" }
+              - { label: "Headline (English)", name: "headline_en", widget: "string", hint: "No promises or guarantees." }
+              - { label: "Text (English)", name: "text_en", widget: "text" }
+              - { label: "Button (English)", name: "button_en", widget: "string" }
+              - { label: "Fine print (English)", name: "fine_print_en", widget: "string" }
+              - { label: "Small label (Amharic)", name: "kicker_am", widget: "string" }
+              - { label: "Headline (Amharic)", name: "headline_am", widget: "string" }
+              - { label: "Text (Amharic)", name: "text_am", widget: "text" }
+              - { label: "Button (Amharic)", name: "button_am", widget: "string" }
+              - { label: "Fine print (Amharic)", name: "fine_print_am", widget: "string" }
           - label: "Home page cover"
             name: "hero"
             widget: "object"
