@@ -188,12 +188,20 @@ collections:
               - { label: "Headline (English)", name: "headline_en", widget: "string", hint: "No promises or guarantees." }
               - { label: "Text (English)", name: "text_en", widget: "text" }
               - { label: "Button (English)", name: "button_en", widget: "string" }
+              - { label: "Gift line (English; leave blank to hide)", name: "gift_en", widget: "string", required: false }
               - { label: "Fine print (English)", name: "fine_print_en", widget: "string" }
+              - { label: "Word on the yellow reveal (English)", name: "reveal_en", widget: "string", required: false }
+              - { label: "Thank-you title (English)", name: "success_title_en", widget: "string" }
+              - { label: "Thank-you text (English)", name: "success_text_en", widget: "text" }
               - { label: "Small label (Amharic)", name: "kicker_am", widget: "string" }
               - { label: "Headline (Amharic)", name: "headline_am", widget: "string" }
               - { label: "Text (Amharic)", name: "text_am", widget: "text" }
               - { label: "Button (Amharic)", name: "button_am", widget: "string" }
+              - { label: "Gift line (Amharic)", name: "gift_am", widget: "string", required: false }
               - { label: "Fine print (Amharic)", name: "fine_print_am", widget: "string" }
+              - { label: "Word on the yellow reveal (Amharic)", name: "reveal_am", widget: "string", required: false }
+              - { label: "Thank-you title (Amharic)", name: "success_title_am", widget: "string" }
+              - { label: "Thank-you text (Amharic)", name: "success_text_am", widget: "text" }
           - label: "Home page cover"
             name: "hero"
             widget: "object"
